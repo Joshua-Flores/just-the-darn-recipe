@@ -241,9 +241,9 @@ class ContactForm extends React.Component {
           type="submit"
           value="Send"
           className="g-recaptcha"
-          data-sitekey="6LepacUZAAAAAO8iJhxPy-0Nox-tciGVlwI2C9G3"
-          data-callback="handleSubmit"
-          data-action="submit"
+          sitekey="6LepacUZAAAAAO8iJhxPy-0Nox-tciGVlwI2C9G3"
+          callback="handleSubmit"
+          action="submit"
         />
 
         <Modal visible={this.state.showModal}>
