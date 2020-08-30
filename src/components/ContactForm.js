@@ -154,6 +154,13 @@ class ContactForm extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const script = document.createElement('script')
+    script.src = 'https://www.google.com/recaptcha/api.js'
+    script.async = true
+    document.body.appendChild(script)
+  }
+
   handleInputChange = event => {
     const target = event.target
     const value = target.value
@@ -163,7 +170,7 @@ class ContactForm extends React.Component {
     })
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event, token) => {
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -229,7 +236,15 @@ class ContactForm extends React.Component {
           onChange={this.handleInputChange}
           required
         />
-        <Submit name="submit" type="submit" value="Send" />
+        <Submit
+          name="submit"
+          type="submit"
+          value="Send"
+          className="g-recaptcha"
+          data-sitekey="6LepacUZAAAAAO8iJhxPy-0Nox-tciGVlwI2C9G3"
+          data-callback="handleSubmit"
+          data-action="submit"
+        />
 
         <Modal visible={this.state.showModal}>
           <p>
