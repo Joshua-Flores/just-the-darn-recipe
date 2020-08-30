@@ -55,14 +55,14 @@ Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/ga
 
 ```js
   siteMetadata: {
-    title: 'GCN', // Title of the website
+    title: 'Just the Darn Recipe', // Title of the website
     description: // Description of the website
-      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.com', // Website URL. Do not include trailing slash
+      'Just the darn recipes, no fluff.',
+    siteUrl: 'https://www.justthedarnrecipes.com', // Website URL. Do not include trailing slash
     image: '/images/share.jpg', // Path to default image for SEO
     menuLinks: [ // The links used in the top menu
       {
-        name: 'Home',
+        name: 'Just the Darn Recipes',
         slug: '/',
       },
       {

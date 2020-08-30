@@ -26,6 +26,11 @@ const Nav = styled.nav`
       position: relative;
       margin: 0;
       flex-basis: 100%;
+      font-size: 24px;
+
+      a {
+        font-weight: 900;
+      }
     }
   }
 

@@ -31,12 +31,15 @@ const Posts = ({ data, pageContext }) => {
       <SEO title={startCase(basePath)} image={ogImage} />
       <Container>
         {isFirstPage ? (
-          <CardList>
-            <Card {...featuredPost} featured basePath={basePath} />
-            {posts.slice(1).map(({ node: post }) => (
-              <Card key={post.id} {...post} basePath={basePath} />
-            ))}
-          </CardList>
+          <div>
+            <h2>Latest Posts</h2>
+            <CardList>
+              <Card {...featuredPost} featured basePath={basePath} />
+              {posts.slice(1).map(({ node: post }) => (
+                <Card key={post.id} {...post} basePath={basePath} />
+              ))}
+            </CardList>
+          </div>
         ) : (
           <CardList>
             {posts.map(({ node: post }) => (

@@ -17,14 +17,13 @@ try {
 
 module.exports = {
   siteMetadata: {
-    title: 'GCN',
-    description:
-      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.com',
+    title: 'JUST THE DARN RECIPE',
+    description: 'Just the darn recipe, no fluff. Ever.',
+    siteUrl: 'https://www.justthedarnrecipe.copm',
     image: '/images/share.jpg',
     menuLinks: [
       {
-        name: 'Home',
+        name: 'JUST THE DARN RECIPE.',
         slug: '/',
       },
       {

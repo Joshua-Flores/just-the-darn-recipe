@@ -94,6 +94,12 @@ export const globalStyles = css`
     vertical-align: baseline;
   }
 
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0px auto 12px auto;
+  }
+
   /* Added to Fix Footer to bottom of viewport */
   html,
   body {

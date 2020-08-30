@@ -73,9 +73,6 @@ const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
             <StyledImg fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
             <Title>{title}</Title>
             <Date>{publishDate}</Date>
-            <ReadingTime>
-              {body.childMarkdownRemark.timeToRead} min read
-            </ReadingTime>
             <Excerpt
               dangerouslySetInnerHTML={{
                 __html: body.childMarkdownRemark.excerpt,
