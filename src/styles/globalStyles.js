@@ -100,6 +100,10 @@ export const globalStyles = css`
     margin: 0px auto 12px auto;
   }
 
+  .publishDate {
+    color: hsla(0, 0%, 40%, 1);
+  }
+
   /* Added to Fix Footer to bottom of viewport */
   html,
   body {

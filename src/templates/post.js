@@ -44,10 +44,7 @@ const PostTemplate = ({ data, pageContext }) => {
       <Hero title={title} image={heroImage} height={'50vh'} />
       <Container>
         {tags && <TagList tags={tags} basePath={basePath} />}
-        <PostDetails
-          date={publishDate}
-          timeToRead={body.childMarkdownRemark.timeToRead}
-        />
+        <PostDetails date={publishDate} />
         <PageBody body={body} />
       </Container>
       <PostLinks previous={previous} next={next} basePath={basePath} />
@@ -83,7 +80,6 @@ export const query = graphql`
       }
       body {
         childMarkdownRemark {
-          timeToRead
           html
           excerpt(pruneLength: 320)
         }
