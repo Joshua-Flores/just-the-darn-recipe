@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -83,6 +84,7 @@ const Submit = styled.input`
   color: white !important;
   cursor: pointer;
   transition: 0.2s;
+  display: block;
   &:hover {
     background: ${props => props.theme.colors.highlight} !important;
   }
@@ -150,15 +152,9 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
+      showSubmit: false,
       showModal: false,
     }
-  }
-
-  componentDidMount() {
-    const script = document.createElement('script')
-    script.src = 'https://www.google.com/recaptcha/api.js'
-    script.async = true
-    document.body.appendChild(script)
   }
 
   handleInputChange = event => {
@@ -187,6 +183,12 @@ class ContactForm extends React.Component {
       email: '',
       message: '',
       showModal: true,
+    })
+  }
+
+  onChange = () => {
+    this.setState({
+      showSubmit: true,
     })
   }
 
@@ -236,15 +238,15 @@ class ContactForm extends React.Component {
           onChange={this.handleInputChange}
           required
         />
-        <Submit
-          name="submit"
-          type="submit"
-          value="Send"
-          className="g-recaptcha"
-          sitekey="6LepacUZAAAAAO8iJhxPy-0Nox-tciGVlwI2C9G3"
-          callback="handleSubmit"
-          action="submit"
+
+        <ReCAPTCHA
+          sitekey="6LePhcUZAAAAAFn3W9k6tobtC3mp7BGPK2oqc7wz"
+          onChange={this.onChange}
         />
+
+        {this.state.showSubmit && (
+          <Submit name="submit" type="submit" value="Send" />
+        )}
 
         <Modal visible={this.state.showModal}>
           <p>
