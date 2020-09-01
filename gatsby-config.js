@@ -40,9 +40,6 @@ module.exports = {
     basePath: '/',
   },
   plugins: [
-    {
-      resolve: `gatsby-transformer-sharp`,
-    },
     `gatsby-plugin-emotion`,
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
