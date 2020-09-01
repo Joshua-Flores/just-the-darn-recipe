@@ -81,13 +81,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GCN',
-        short_name: 'GCN',
+        name: 'Just the Darn Recipe',
+        short_name: 'JDR',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'minimal-ui',
-        icon: './static/images/favicon.png',
+        icon: './static/images/favicon.svg',
       },
     },
     'gatsby-plugin-offline',
