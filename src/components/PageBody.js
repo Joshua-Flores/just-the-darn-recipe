@@ -49,14 +49,16 @@ const Body = styled.div`
 
   ul,
   ol {
-    margin: 0 0 2em 0;
+    margin: 0 0 2em 2em;
   }
 
   ul {
     li {
       list-style: disc;
-      list-style-position: inside;
-      line-height: 1.25;
+      list-style-position: outside;
+      line-height: 1.6;
+      margin-bottom: 0.8em;
+      padding-left: 8px;
       &:last-child {
         margin: 0;
       }
@@ -66,8 +68,10 @@ const Body = styled.div`
   ol {
     li {
       list-style: decimal;
-      list-style-position: inside;
-      line-height: 1.25;
+      list-style-position: outside;
+      line-height: 1.6;
+      margin-bottom: 0.8em;
+      padding-left: 8px;
       &:last-child {
         margin: 0;
       }
