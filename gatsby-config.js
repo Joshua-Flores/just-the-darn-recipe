@@ -18,7 +18,7 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'JUST THE DARN RECIPE',
-    description: 'Just the darn recipe, no fluff. Ever.',
+    description: 'No stories. No ads. Just the darn recipe.',
     siteUrl: 'https://www.justthedarnrecipe.copm',
     image: '/images/share.jpg',
     menuLinks: [
