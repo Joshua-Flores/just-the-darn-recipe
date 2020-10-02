@@ -55,7 +55,7 @@ const SEO = ({
             "@context": "http://schema.org",
             "@type": "Recipe",
             "name": "${title}",
-            "image": "${image}",
+            "image": "${metaImage}",
             "author": {
               "@type": "Person",
               "name": "Josh Flores"
