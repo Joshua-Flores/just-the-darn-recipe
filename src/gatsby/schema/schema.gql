@@ -155,6 +155,13 @@ type ContentfulTag implements Node @derivedTypes @dontInfer {
 type ContentfulPost implements Node @derivedTypes @dontInfer {
   title: String
   slug: String
+  recipeCuisine: String
+  recipeCategory: String
+  prepTime: String
+  cookTime: String
+  totalTime: String
+  keywords: String
+  recipeYield: Int
   publishDate: Date @dateformat
   heroImage: ContentfulAsset @link(by: "id", from: "heroImage___NODE")
   tags: [ContentfulTag] @link(by: "id", from: "tags___NODE")
@@ -238,13 +245,6 @@ type ContentfulPage implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
   node_locale: String
-  recipeCuisine: String
-  recipeCategory: String
-  prepTime: String
-  cookTime: String
-  totalTime: String
-  keywords: String
-  recipeYield: Int
 }
 
 type ContentfulPageSys @derivedTypes {
