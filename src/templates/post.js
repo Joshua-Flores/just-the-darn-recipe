@@ -12,6 +12,7 @@ import SEO from '../components/SEO'
 const PostTemplate = ({ data, pageContext }) => {
   const {
     title,
+    slug,
     metaDescription,
     heroImage,
     body,
@@ -42,6 +43,7 @@ const PostTemplate = ({ data, pageContext }) => {
     <Layout>
       <SEO
         title={title}
+        slug={slug}
         description={
           metaDescription
             ? metaDescription.internal.content

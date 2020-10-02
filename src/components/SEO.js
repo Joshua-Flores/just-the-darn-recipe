@@ -14,6 +14,7 @@ const SEO = ({
   totalTime,
   keywords,
   recipeYield,
+  slug,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -32,7 +33,7 @@ const SEO = ({
 
   const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.image
   const metaDescription = description || site.siteMetadata.description
-  const metaImage = image || defaultImage
+  const metaImage = 'https:' + image || defaultImage
 
   return (
     <Helmet
@@ -73,6 +74,10 @@ const SEO = ({
     `}</script>
 
       {/* OpenGraph tags */}
+      <meta
+        property="og:url"
+        content={site.siteMetadata.siteUrl + '/' + slug}
+      />
       <meta property="og:title" content={title} />
       <meta property="og:image" content={metaImage} />
       <meta property="og:description" content={metaDescription} />
