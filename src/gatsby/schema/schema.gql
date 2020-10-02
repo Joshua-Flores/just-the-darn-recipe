@@ -94,7 +94,19 @@ type MarkdownWordCount {
   words: Int
 }
 
-type MarkdownRemark implements Node @childOf(mimeTypes: [], types: ["contentfulPostBodyTextNode", "contentfulPostMetaDescriptionTextNode", "contentfulPageBodyTextNode", "contentfulPageMetaDescriptionTextNode"], many: false) @derivedTypes @dontInfer {
+type MarkdownRemark implements Node
+  @childOf(
+    mimeTypes: []
+    types: [
+      "contentfulPostBodyTextNode"
+      "contentfulPostMetaDescriptionTextNode"
+      "contentfulPageBodyTextNode"
+      "contentfulPageMetaDescriptionTextNode"
+    ]
+    many: false
+  )
+  @derivedTypes
+  @dontInfer {
   frontmatter: MarkdownRemarkFrontmatter
   excerpt: String
   rawMarkdownBody: String
@@ -104,19 +116,27 @@ type MarkdownRemarkFrontmatter {
   title: String
 }
 
-type contentfulPostBodyTextNode implements Node @childOf(mimeTypes: [], types: ["ContentfulPost"], many: false) @dontInfer {
+type contentfulPostBodyTextNode implements Node
+  @childOf(mimeTypes: [], types: ["ContentfulPost"], many: false)
+  @dontInfer {
   body: String
 }
 
-type contentfulPageMetaDescriptionTextNode implements Node @childOf(mimeTypes: [], types: ["ContentfulPage"], many: false) @dontInfer {
+type contentfulPageMetaDescriptionTextNode implements Node
+  @childOf(mimeTypes: [], types: ["ContentfulPage"], many: false)
+  @dontInfer {
   metaDescription: String
 }
 
-type contentfulPageBodyTextNode implements Node @childOf(mimeTypes: [], types: ["ContentfulPage"], many: false) @dontInfer {
+type contentfulPageBodyTextNode implements Node
+  @childOf(mimeTypes: [], types: ["ContentfulPage"], many: false)
+  @dontInfer {
   body: String
 }
 
-type contentfulPostMetaDescriptionTextNode implements Node @childOf(mimeTypes: [], types: ["ContentfulPost"], many: false) @dontInfer {
+type contentfulPostMetaDescriptionTextNode implements Node
+  @childOf(mimeTypes: [], types: ["ContentfulPost"], many: false)
+  @dontInfer {
   metaDescription: String
 }
 
@@ -135,6 +155,13 @@ type ContentfulTag implements Node @derivedTypes @dontInfer {
 type ContentfulPost implements Node @derivedTypes @dontInfer {
   title: String
   slug: String
+  recipeCuisine: String
+  recipeCategory: String
+  prepTime: String
+  cookTime: String
+  totalTime: String
+  keywords: String
+  recipeYield: Int
   publishDate: Date @dateformat
   heroImage: ContentfulAsset @link(by: "id", from: "heroImage___NODE")
   tags: [ContentfulTag] @link(by: "id", from: "tags___NODE")
@@ -145,7 +172,8 @@ type ContentfulPost implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulPostSys
   node_locale: String
-  metaDescription: contentfulPostMetaDescriptionTextNode @link(by: "id", from: "metaDescription___NODE")
+  metaDescription: contentfulPostMetaDescriptionTextNode
+    @link(by: "id", from: "metaDescription___NODE")
 }
 
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
@@ -209,7 +237,8 @@ type ContentfulPage implements Node @derivedTypes @dontInfer {
   title: String
   slug: String
   body: contentfulPageBodyTextNode @link(by: "id", from: "body___NODE")
-  metaDescription: contentfulPageMetaDescriptionTextNode @link(by: "id", from: "metaDescription___NODE")
+  metaDescription: contentfulPageMetaDescriptionTextNode
+    @link(by: "id", from: "metaDescription___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat

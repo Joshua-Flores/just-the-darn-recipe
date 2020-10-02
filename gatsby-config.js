@@ -19,7 +19,7 @@ module.exports = {
   siteMetadata: {
     title: 'JUST THE DARN RECIPE',
     description: 'No stories. No ads. Just the darn recipe.',
-    siteUrl: 'https://www.justthedarnrecipe.copm',
+    siteUrl: 'https://www.justthedarnrecipe.com',
     image: '/images/share.jpg',
     menuLinks: [
       {

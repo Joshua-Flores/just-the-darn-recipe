@@ -16,7 +16,15 @@ const PostTemplate = ({ data, pageContext }) => {
     heroImage,
     body,
     publishDate,
+    publishDateISO,
     tags,
+    recipeCuisine,
+    recipeCategory,
+    prepTime,
+    cookTime,
+    totalTime,
+    keywords,
+    recipeYield,
   } = data.contentfulPost
 
   const previous = pageContext.prev
@@ -40,6 +48,14 @@ const PostTemplate = ({ data, pageContext }) => {
             : body.childMarkdownRemark.excerpt
         }
         image={ogImage}
+        datePublished={publishDateISO}
+        recipeCuisine={recipeCuisine}
+        recipeCategory={recipeCategory}
+        prepTime={prepTime}
+        cookTime={cookTime}
+        totalTime={totalTime}
+        keywords={keywords}
+        recipeYield={recipeYield}
       />
 
       <Container>
@@ -85,6 +101,13 @@ export const query = graphql`
           excerpt(pruneLength: 320)
         }
       }
+      recipeCuisine
+      recipeCategory
+      prepTime
+      cookTime
+      totalTime
+      keywords
+      recipeYield
     }
   }
 `
