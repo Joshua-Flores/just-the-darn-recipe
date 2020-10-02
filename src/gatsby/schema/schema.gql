@@ -237,7 +237,8 @@ type ContentfulPage implements Node @derivedTypes @dontInfer {
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
-  node_locale: StringecipeCuisine: String
+  node_locale: String
+  recipeCuisine: String
   recipeCategory: String
   prepTime: String
   cookTime: String
