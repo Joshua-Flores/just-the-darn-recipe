@@ -48,8 +48,7 @@ const SEO = ({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {/* General tags */}
       <meta name="image" content={image} />
-      <meta name="description" content={metaDescription} />
-
+      <meta name="description" content={metaDescription} />s
       {/* OpenGraph tags */}
       <meta
         property="og:url"
@@ -58,7 +57,6 @@ const SEO = ({
       <meta property="og:title" content={title} />
       <meta property="og:image" content={metaImage} />
       <meta property="og:description" content={metaDescription} />
-
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
