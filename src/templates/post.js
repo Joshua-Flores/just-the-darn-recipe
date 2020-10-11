@@ -7,7 +7,7 @@ import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDetails from '../components/PostDetails'
-import SEO from '../components/SEO'
+import PostSEO from '../components/PostSEO'
 
 const PostTemplate = ({ data, pageContext }) => {
   const {
@@ -41,7 +41,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO
+      <PostSEO
         title={title}
         slug={slug}
         description={

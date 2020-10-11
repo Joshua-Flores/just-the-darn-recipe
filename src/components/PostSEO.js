@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({
+const PostSEO = ({
   title,
   description,
   image,
@@ -50,6 +50,29 @@ const SEO = ({
       <meta name="image" content={image} />
       <meta name="description" content={metaDescription} />
 
+      {/* Google SEO */}
+      <script type="application/ld+json">{`
+        {
+            "@context": "http://schema.org",
+            "@type": "Recipe",
+            "name": "${title}",
+            "image": "${metaImage}",
+            "author": {
+              "@type": "Person",
+              "name": "Josh Flores"
+            },
+            "datePublished" : "${datePublished}",
+            "description": "${metaDescription}",
+            "recipeCuisine": "${recipeCuisine}",
+            "recipeCategory": "${recipeCategory}",
+            "prepTime": "${prepTime}",
+            "cookTime": "${cookTime}",
+            "totalTime": "${totalTime}",
+            "keywords": "${keywords}",
+            "recipeYield": "${recipeYield}"
+        }
+    `}</script>
+
       {/* OpenGraph tags */}
       <meta
         property="og:url"
@@ -68,4 +91,4 @@ const SEO = ({
   )
 }
 
-export default SEO
+export default PostSEO
