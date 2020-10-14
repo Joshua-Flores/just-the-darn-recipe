@@ -50,7 +50,7 @@ class PostDetails extends React.Component {
             <Tooltip title="Twitter" aria-label="twitter">
               <IconButton
                 aria-label="twitter"
-                href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20darn%20recipe!&url=${window.location.hostname}/${this.props.url}`}
+                href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20darn%20recipe!&url=https://justthedarnrecipe.com/${this.props.url}`}
                 target="_blank"
               >
                 <TwitterIcon />
@@ -59,14 +59,14 @@ class PostDetails extends React.Component {
             <Tooltip title="Facebook" aria-label="facebook">
               <IconButton
                 aria-label="facebook"
-                href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.hostname}/${this.props.url}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=https://justthedarnrecipe.com/${this.props.url}`}
                 target="_blank"
               >
                 <FacebookIcon />
               </IconButton>
             </Tooltip>
             <CopyToClipboard
-              text={`${window.location.hostname}/${this.props.url}`}
+              text={`https://justthedarnrecipe.com/${this.props.url}`}
               onCopy={this.handleCopyToClipboard}
             >
               <Tooltip
