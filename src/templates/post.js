@@ -6,7 +6,6 @@ import Container from '../components/Container'
 import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
-import PostDetails from '../components/PostDetails'
 import PostSEO from '../components/PostSEO'
 
 const PostTemplate = ({ data, pageContext }) => {
@@ -62,8 +61,14 @@ const PostTemplate = ({ data, pageContext }) => {
 
       <Container>
         {tags && <TagList tags={tags} basePath={basePath} />}
-        <Hero title={title} image={heroImage} height={'50vh'} />
-        <PostDetails date={publishDate} />
+        <Hero
+          title={title}
+          image={heroImage}
+          height={'50vh'}
+          date={publishDate}
+          url={slug}
+        />
+
         <PageBody body={body} />
       </Container>
       <PostLinks previous={previous} next={next} basePath={basePath} />
