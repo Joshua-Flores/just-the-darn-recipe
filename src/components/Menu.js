@@ -1,69 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { useSiteMetadata } from '../hooks/use-site-metadata'
+import {
+  withStyles
+} from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
+import Search from "./search"
+
+const searchIndices = [{ name: `Pages`, title: `Pages` }]
 
 const Header = styled.header`
   background: ${props => props.theme.colors.primary};
   width: 100%;
-  padding: 1.5em 0;
+  padding: .5em 0em;
 `
 const Nav = styled.nav`
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
   padding: 0 1.5em;
-
-  ul {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  li {
-    display: inline-block;
-    margin-left: 1em;
-    &:first-of-type {
-      position: relative;
-      margin: 0;
-      flex-basis: 100%;
-      font-size: 24px;
-
-      a {
-        font-weight: 900;
-      }
-    }
-  }
-
-  a {
-    text-decoration: none;
-    color: DarkGray;
-    font-weight: 600;
-    transition: all 0.2s;
-    border-bottom: 2px solid ${props => props.theme.colors.text};
-    &:hover {
-      color: white;
-    }
-  }
+  display:flex;
+  height:48px;
+  justify-content:space-between;
+  align-items:center;
 `
 
-const activeLinkStyle = {
-  color: 'white',
-}
+const Logo = styled(Link)`
+  font-size:24px;
+  color: white;
+  font-weight:900;
+  text-decoration:none;
+
+  @media screen and (max-width: 575.98px) {
+    font-size:20px;
+  }
+`
+const DarkIconButton = withStyles((theme) => ({
+  root: {
+    color: 'white',
+    '&:hover': {
+      backgroundColor: "hsla(0,0%,20%,1)",
+    },
+  },
+}))(IconButton);
+
+const SearchIconWhite = withStyles((theme) => ({
+  root: {
+    fill: 'white'
+  }
+}))(SearchIcon)
 
 const Menu = () => {
-  const { menuLinks } = useSiteMetadata()
+  const [searchActive, setSearchActive] = useState(false)
+
   return (
     <Header>
       <Nav>
-        <ul>
-          {menuLinks.map(link => (
-            <li key={link.name}>
-              <Link to={link.slug} activeStyle={activeLinkStyle}>
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      {!searchActive && <Logo to="/">JUST THE DARN RECIPE.</Logo>}
+      {!searchActive && <DarkIconButton onClick={() => setSearchActive(true)}><SearchIconWhite />
+      </DarkIconButton>}
+      
+      {searchActive && 
+        <Search indices={searchIndices} closeSearch={()=> setSearchActive(false)}/> } 
+           
+        
       </Nav>
     </Header>
   )
