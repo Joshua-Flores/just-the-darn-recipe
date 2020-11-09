@@ -2,6 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import ReCAPTCHA from 'react-google-recaptcha'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import { createMuiTheme } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/styles'
+import { green } from '@material-ui/core/colors'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#000',
+    },
+    secondary: {
+      main: green[500],
+    },
+  },
+})
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -12,131 +34,12 @@ import ReCAPTCHA from 'react-google-recaptcha'
 const Form = styled.form`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   margin: 0 auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  input,
-  textarea {
-    font-family: inherit;
-    font-size: inherit;
-    background: ${props => props.theme.colors.tertiary};
-    color: ${props => props.theme.colors.text};
-    border-radius: 2px;
-    padding: 1em;
-    &::-webkit-input-placeholder {
-      color: gray;
-    }
-    &::-moz-placeholder {
-      color: gray;
-    }
-    &:-ms-input-placeholder {
-      color: gray;
-    }
-    &:-moz-placeholder {
-      color: gray;
-    }
-    &:required {
-      box-shadow: none;
-    }
-  }
-  &::before {
-    content: '';
-    background: black;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: 0.2s all;
-    opacity: ${props => (props.overlay ? '.8' : '0')};
-    visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
-  }
 `
 
-const Name = styled.input`
-  margin: 0 0 1em 0;
-  width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
-    width: 49%;
-  }
-`
-
-const Email = styled.input`
-  margin: 0 0 1em 0;
-  width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
-    width: 49%;
-  }
-`
-
-const Message = styled.textarea`
-  width: 100%;
-  margin: 0 0 1em 0;
-  line-height: 1.6;
-  min-height: 250px;
-  resize: vertical;
-`
-
-const Submit = styled.input`
-  background: ${props => props.theme.colors.text} !important;
-  color: white !important;
-  cursor: pointer;
-  transition: 0.2s;
-  display: block;
-  &:hover {
-    background: ${props => props.theme.colors.highlight} !important;
-  }
-`
-
-const Modal = styled.div`
-  background: white;
-  padding: 2em;
-  border-radius: 2px;
-  position: fixed;
-  min-width: 75%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  z-index: 99;
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  transition: 0.2s all;
-  opacity: ${props => (props.visible ? '1' : '0')};
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    min-width: inherit;
-    max-width: 400px;
-  }
-  p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
-  }
-`
-
-const Button = styled.div`
-  background: ${props => props.theme.colors.text};
-  font-size: 1em;
+const SuccessImage = styled.img`
+  max-width: 24px;
   display: inline-block;
-  margin: 0 auto;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: white;
-  padding: 1em;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: 0.2s;
-  z-index: 99;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    background: ${props => props.theme.colors.highlight};
-  }
+  margin: 0px 0px -4px 12px;
 `
 
 const encode = data => {
@@ -186,7 +89,7 @@ class ContactForm extends React.Component {
     })
   }
 
-  onChange = () => {
+  onRecaptchaChange = () => {
     this.setState({
       showSubmit: true,
     })
@@ -198,64 +101,113 @@ class ContactForm extends React.Component {
 
   render() {
     return (
-      <Form
-        name="contact"
-        onSubmit={this.handleSubmit}
-        data-netlify="true"
-        data-netlify-honeypot="bot"
-        overlay={this.state.showModal}
-        onClick={this.closeModal}
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don’t fill this out:{' '}
-            <input name="bot" onChange={this.handleInputChange} />
-          </label>
-        </p>
-
-        <Name
-          name="name"
-          type="text"
-          placeholder="Name"
-          value={this.state.name}
-          onChange={this.handleInputChange}
-          required
-        />
-        <Email
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          required
-        />
-        <Message
-          name="message"
-          type="text"
-          placeholder="Message"
-          value={this.state.message}
-          onChange={this.handleInputChange}
-          required
-        />
-
-        <ReCAPTCHA
-          sitekey="6LePhcUZAAAAAFn3W9k6tobtC3mp7BGPK2oqc7wz"
-          onChange={this.onChange}
-        />
-
-        {this.state.showSubmit && (
-          <Submit name="submit" type="submit" value="Send" />
-        )}
-
-        <Modal visible={this.state.showModal}>
-          <p>
-            Thank you for reaching out. I will get back to you as soon as
-            possible.
+      <ThemeProvider theme={theme}>
+        <Form
+          name="contact"
+          onSubmit={this.handleSubmit}
+          data-netlify="true"
+          data-netlify-honeypot="bot"
+          overlay={this.state.showModal}
+          onClick={this.closeModal}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out:{' '}
+              <input name="bot" onChange={this.handleInputChange} />
+            </label>
           </p>
-          <Button onClick={this.closeModal}>Okay</Button>
-        </Modal>
-      </Form>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <TextField
+                id="name"
+                name="name"
+                label="Name"
+                variant="filled"
+                color="secondary"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                required
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                id="email"
+                name="email"
+                label="Email"
+                variant="filled"
+                color="secondary"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+                required
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="message"
+                name="message"
+                label="Message"
+                variant="filled"
+                color="secondary"
+                value={this.state.message}
+                onChange={this.handleInputChange}
+                required
+                multiline
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <ReCAPTCHA
+                sitekey="6LePhcUZAAAAAFn3W9k6tobtC3mp7BGPK2oqc7wz"
+                onChange={this.onRecaptchaChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              {this.state.showSubmit && (
+                <Button
+                  variant="contained"
+                  name="submit"
+                  type="submit"
+                  value="Send"
+                  color="primary"
+                  size="large"
+                >
+                  Submit
+                </Button>
+              )}
+            </Grid>
+          </Grid>
+
+          <Dialog
+            open={this.state.showModal}
+            onClose={this.closeModal}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+            maxWidth="xs"
+          >
+            <DialogTitle id="alert-dialog-title">Form Submitted 👍</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                Thanks for reaching out to us! We'll get back to you as soon as
+                we get a chance.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={this.closeModal}
+                fullWidth
+                color="primary"
+                size="large"
+                variant="contained"
+              >
+                Close
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </Form>
+      </ThemeProvider>
     )
   }
 }
