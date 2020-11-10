@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { load } from 'recaptcha-v3'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -55,7 +54,6 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
-      showSubmit: false,
       showModal: false,
     }
   }
@@ -89,22 +87,8 @@ class ContactForm extends React.Component {
     })
   }
 
-  onRecaptchaChange = () => {
-    this.setState({
-      showSubmit: true,
-    })
-  }
-
   closeModal = () => {
     this.setState({ showModal: false })
-  }
-
-  componentDidMount() {
-    load('6LfpFeEZAAAAAEgjxEEuKDoC-Qj6mZ9czeEKkKHB').then((recaptcha) => {
-      recaptcha.execute().then((token) => {
-          this.onRecaptchaChange()
-        })
-    })
   }
 
   render() {
@@ -114,7 +98,8 @@ class ContactForm extends React.Component {
           name="contact"
           onSubmit={this.handleSubmit}
           data-netlify="true"
-          data-netlify-honeypot="bot"
+          data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
           overlay={this.state.showModal}
           onClick={this.closeModal}
         >
@@ -122,7 +107,7 @@ class ContactForm extends React.Component {
           <p hidden>
             <label>
               Don’t fill this out:{' '}
-              <input name="bot" onChange={this.handleInputChange} />
+              <input name="bot-field" onChange={this.handleInputChange} />
             </label>
           </p>
           <Grid container spacing={2}>
@@ -167,18 +152,19 @@ class ContactForm extends React.Component {
               />
             </Grid>
             <Grid item xs={12}>
-              {this.state.showSubmit && (
-                <Button
-                  variant="contained"
-                  name="submit"
-                  type="submit"
-                  value="Send"
-                  color="primary"
-                  size="large"
-                >
-                  Submit
-                </Button>
-              )}
+              <div data-netlify-recaptcha="true"></div>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                name="submit"
+                type="submit"
+                value="Send"
+                color="primary"
+                size="large"
+              >
+                Submit
+              </Button>
             </Grid>
           </Grid>
 
