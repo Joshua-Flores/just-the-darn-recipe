@@ -34,7 +34,7 @@ const SearchBar = withStyles((theme) => ({
 
 export default connectSearchBox(
   ({ refine, currentRefinement, className, onFocus, closeSearch}) => (
-    <form className={className}>
+    <form className={className} onSubmit={(e) => e.preventDefault()}>
     <ThemeProvider theme={theme}>
         <SearchBar 
           placeholder="Search"

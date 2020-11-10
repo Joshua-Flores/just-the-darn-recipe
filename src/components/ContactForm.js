@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import ReCAPTCHA from 'react-google-recaptcha'
+import { load } from 'recaptcha-v3'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -99,6 +99,14 @@ class ContactForm extends React.Component {
     this.setState({ showModal: false })
   }
 
+  componentDidMount() {
+    load('6LfpFeEZAAAAAEgjxEEuKDoC-Qj6mZ9czeEKkKHB').then((recaptcha) => {
+      recaptcha.execute().then((token) => {
+          this.onRecaptchaChange()
+        })
+    })
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -156,12 +164,6 @@ class ContactForm extends React.Component {
                 required
                 multiline
                 fullWidth
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <ReCAPTCHA
-                sitekey="6LePhcUZAAAAAFn3W9k6tobtC3mp7BGPK2oqc7wz"
-                onChange={this.onRecaptchaChange}
               />
             </Grid>
             <Grid item xs={12}>

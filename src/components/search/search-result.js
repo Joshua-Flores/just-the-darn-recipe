@@ -25,8 +25,6 @@ const HitContainer = styled.div`
   }
 `
 
-console.log(Hits)
-
 const HitCount = connectStateResults(({ searchResults }) => {
   const hitCount = searchResults && searchResults.nbHits
   return hitCount > 0 ? (
