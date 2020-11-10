@@ -98,7 +98,7 @@ class ContactForm extends React.Component {
           name="contact"
           onSubmit={this.handleSubmit}
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
+          data-netlify-honeypot="bot"
           data-netlify-recaptcha="true"
           method="POST"
           overlay={this.state.showModal}
@@ -108,7 +108,7 @@ class ContactForm extends React.Component {
           <p hidden>
             <label>
               Don’t fill this out:{' '}
-              <input name="bot-field" onChange={this.handleInputChange} />
+              <input name="bot" onChange={this.handleInputChange} />
             </label>
           </p>
           <Grid container spacing={2}>
