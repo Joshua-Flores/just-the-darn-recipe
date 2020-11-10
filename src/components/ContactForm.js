@@ -151,17 +151,19 @@ class ContactForm extends React.Component {
                 fullWidth
               />
             </Grid>
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                name="submit"
+                type="submit"
+                value="Send"
+                color="primary"
+                size="large"
+              >
+                Submit
+              </Button>
+            </Grid>
           </Grid>
-          <Button
-            variant="contained"
-            name="submit"
-            type="submit"
-            value="Send"
-            color="primary"
-            size="large"
-          >
-            Submit
-          </Button>
 
           <Dialog
             open={this.state.showModal}
