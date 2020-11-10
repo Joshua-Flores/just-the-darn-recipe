@@ -151,7 +151,6 @@ class ContactForm extends React.Component {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}></Grid>
           </Grid>
           <Button
             variant="contained"
