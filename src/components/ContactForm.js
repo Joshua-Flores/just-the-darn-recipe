@@ -99,7 +99,6 @@ class ContactForm extends React.Component {
           onSubmit={this.handleSubmit}
           data-netlify="true"
           data-netlify-honeypot="bot"
-          data-netlify-recaptcha="true"
           method="POST"
           overlay={this.state.showModal}
           onClick={this.closeModal}
@@ -154,7 +153,6 @@ class ContactForm extends React.Component {
             </Grid>
             <Grid item xs={12}></Grid>
           </Grid>
-          <div data-netlify-recaptcha="true"></div>
           <Button
             variant="contained"
             name="submit"
