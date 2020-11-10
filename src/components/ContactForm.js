@@ -151,22 +151,19 @@ class ContactForm extends React.Component {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
-              <div data-netlify-recaptcha="true"></div>
-            </Grid>
-            <Grid item xs={12}>
-              <Button
-                variant="contained"
-                name="submit"
-                type="submit"
-                value="Send"
-                color="primary"
-                size="large"
-              >
-                Submit
-              </Button>
-            </Grid>
+            <Grid item xs={12}></Grid>
           </Grid>
+          <div data-netlify-recaptcha="true"></div>
+          <Button
+            variant="contained"
+            name="submit"
+            type="submit"
+            value="Send"
+            color="primary"
+            size="large"
+          >
+            Submit
+          </Button>
 
           <Dialog
             open={this.state.showModal}
