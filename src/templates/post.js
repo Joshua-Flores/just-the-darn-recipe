@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
-import Container from '../components/Container'
+import Container from '@material-ui/core/Container'
 import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
@@ -59,7 +59,7 @@ const PostTemplate = ({ data, pageContext }) => {
         recipeYield={recipeYield}
       />
 
-      <Container>
+      <Container maxWidth="md">
         {tags && <TagList tags={tags} basePath={basePath} />}
         <Hero
           title={title}

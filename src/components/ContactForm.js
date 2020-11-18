@@ -164,7 +164,6 @@ class ContactForm extends React.Component {
               </Button>
             </Grid>
           </Grid>
-
           <Dialog
             open={this.state.showModal}
             onClose={this.closeModal}

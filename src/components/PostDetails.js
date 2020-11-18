@@ -7,6 +7,7 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import LinkIcon from '@material-ui/icons/Link'
 import Tooltip from '@material-ui/core/Tooltip'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import Typography from '@material-ui/core/Typography'
 
 const Wrapper = styled.div`
   margin: auto auto 24px auto;
@@ -16,9 +17,10 @@ const PostInformation = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 8px 0px;
-  span {
-    font-weight: 700;
-  }
+`
+
+const PostedDate = styled(Typography)`
+  font-weight: 700;
 `
 
 const ShareLinks = styled.div`
@@ -45,7 +47,9 @@ class PostDetails extends React.Component {
     return (
       <Wrapper>
         <PostInformation>
-          <span>Posted {this.props.date}</span>
+          <PostedDate variant="body1" color="textSecondary">
+            Posted {this.props.date}
+          </PostedDate>
           <ShareLinks>
             <Tooltip title="Twitter" aria-label="twitter">
               <IconButton

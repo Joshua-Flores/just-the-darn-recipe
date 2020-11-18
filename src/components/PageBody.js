@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-require('prismjs/themes/prism.css')
 
 const Body = styled.div`
   margin: 0 auto;
@@ -8,23 +7,23 @@ const Body = styled.div`
   h1,
   h2,
   h3 {
-    font-weight: 600;
-    line-height: 1.25;
-    margin: 0 0 1rem 0;
+    font-weight: 700;
     text-transform: capitalize;
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.6rem;
   }
   h2 {
-    font-size: 1.25em;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
   h3 {
-    font-size: 1em;
+    font-size: 1.1rem;
   }
 
   p {
+    font-size: 1rem;
     line-height: 1.6;
     margin: 0 0 2em 0;
   }
@@ -32,9 +31,6 @@ const Body = styled.div`
   a {
     transition: 0.2s;
     color: ${props => props.theme.colors.text};
-    &:hover {
-      color: ${props => props.theme.colors.highlight};
-    }
   }
 
   del {
@@ -47,13 +43,9 @@ const Body = styled.div`
     font-style: italic;
   }
 
-  ul,
-  ol {
-    margin: 0 0 2em 2em;
-  }
-
   ul {
     li {
+      font-size: 1rem;
       list-style: disc;
       list-style-position: outside;
       line-height: 1.6;
@@ -67,6 +59,7 @@ const Body = styled.div`
 
   ol {
     li {
+      font-size: 1rem;
       list-style: decimal;
       list-style-position: outside;
       line-height: 1.6;
@@ -103,7 +96,9 @@ const Body = styled.div`
 const PageBody = props => {
   return (
     <Body
-      dangerouslySetInnerHTML={{ __html: props.body.childMarkdownRemark.html }}
+      dangerouslySetInnerHTML={{
+        __html: props.body.childMarkdownRemark.html,
+      }}
     />
   )
 }

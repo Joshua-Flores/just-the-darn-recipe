@@ -1,27 +1,28 @@
-import { Link } from "gatsby"
-import { default as React } from "react"
+import { Link } from 'gatsby'
+import { default as React } from 'react'
 import {
   connectStateResults,
   Highlight,
   Hits,
   Index,
-} from "react-instantsearch-dom"
-import Img from "gatsby-image"
+  PoweredBy,
+} from 'react-instantsearch-dom'
+import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
 const Thumbnail = styled(Img)`
-width:100px;
-height:75px;
-object-fit:cover;
-margin-right:8px;
-flex-shrink:0;
+  width: 100px;
+  height: 75px;
+  object-fit: cover;
+  margin-right: 8px;
+  flex-shrink: 0;
 `
 const HitContainer = styled.div`
-  display:flex;
+  display: flex;
 
   div:first-of-type {
-    width:100px;
-    height:75px;
+    width: 100px;
+    height: 75px;
   }
 `
 
@@ -36,7 +37,7 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <HitContainer>
-    {hit.heroImage && <Thumbnail fixed={hit.heroImage.fixed}/>}
+    {hit.heroImage && <Thumbnail fixed={hit.heroImage.fixed} />}
     <Link to={`/${hit.slug}`}>
       <h4>
         <Highlight attribute="title" hit={hit} tagName="mark" />
@@ -57,7 +58,8 @@ const SearchResult = ({ indices, className }) => (
     {indices.map(index => (
       <HitsInIndex index={index} key={index.name} />
     ))}
-    </div>
+    <PoweredBy />
+  </div>
 )
 
 export default SearchResult

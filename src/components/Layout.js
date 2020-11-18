@@ -1,34 +1,27 @@
 import React, { useEffect } from 'react'
-import styled from '@emotion/styled'
-import { Global } from '@emotion/core'
-import Menu from '../components/Menu'
 import Footer from '../components/Footer'
-import { globalStyles } from '../styles/globalStyles.js'
+import { ThemeProvider } from '@material-ui/core/styles'
+import theme from '../styles/theme'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import NavBar from '../components/NavBar'
+import { makeStyles } from '@material-ui/core/styles'
 
-const Root = styled.div`
-  font-family: ${props => props.theme.fonts.body};
-`
-
-const Skip = styled.a`
-  font-family: ${props => props.theme.fonts.body};
-  padding: 0 1rem;
-  line-height: 60px;
-  background: #2867cf;
-  color: white;
-  z-index: 101;
-  position: fixed;
-  top: -100%;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:focus,
-  &:active,
-  &:hover {
-    top: 0;
-  }
-`
+const useStyles = makeStyles({
+  root: {
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  siteContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1 0 auto',
+  },
+})
 
 const Layout = props => {
+  const classes = useStyles()
+
   function handleFirstTab(e) {
     if (e.keyCode === 9) {
       document.body.classList.add('user-is-tabbing')
@@ -37,17 +30,16 @@ const Layout = props => {
   useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
 
   return (
-    <Root className="siteRoot">
-      <div className="siteContent">
-        <Skip href="#main" id="skip-navigation">
-          Skip to content
-        </Skip>
-        <Menu />
-        <div id="main">{props.children}</div>
-      </div>
-      <Footer />
-      <Global styles={globalStyles} />
-    </Root>
+    <div className={classes.root}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className={classes.siteContent}>
+          <NavBar />
+          <div id="main">{props.children}</div>
+        </div>
+        <Footer />
+      </ThemeProvider>
+    </div>
   )
 }
 

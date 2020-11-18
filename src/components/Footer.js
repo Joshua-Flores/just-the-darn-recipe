@@ -1,121 +1,129 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import { Link } from 'gatsby'
+import { styled } from '@material-ui/core/styles'
+import { Link } from 'gatsby-theme-material-ui'
 import IconButton from '@material-ui/core/IconButton'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import Divider from '@material-ui/core/Divider'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import grey from '@material-ui/core/colors/grey'
+import Typography from '@material-ui/core/Typography'
 
-const Container = styled.div`
-  background-color: hsl(0, 0%, 96%);
-  width: 100%;
-  padding: 24px;
-`
-const Wrapper = styled.footer`
-  margin: 0 auto;
-  max-width: ${props => props.theme.sizes.maxWidth};
-`
-const MainContent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.4em;
-  @media (max-width: 575.98px) {
-    flex-direction: column;
-    align-items: baseline;
-  }
-`
-const FooterLeft = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-`
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: grey[200],
+    padding: '1em 0 2em 0',
+  },
+  mainContent: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '0.4em',
+    '@media (max-width: 575.98px)': {
+      flexDirection: 'column',
+      alignItems: 'baseline',
+    },
+  },
+  footerLeft: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+  },
+  footerRight: {
+    '@media (max-width: 575.98px)': {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'baseline',
+      'a:first-of-type': {
+        marginTop: '1em',
+      },
+      a: {
+        marginBottom: '1em',
+      },
+    },
+  },
+  socialLinks: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  copyright: {
+    marginTop: '1em',
+  },
+})
 
-const FooterRight = styled.div`
-  @media (max-width: 575.98px) {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    a:first-of-type {
-      margin-top: 1em;
-    }
-    a {
-      margin-bottom: 1em;
-    }
-  }
-`
+const FooterLogo = styled(Link)({
+  fontSize: '1.4em',
+  fontWeight: 900,
+  color: grey[900],
+  textDecoration: 'none',
+  marginRight: '2em',
+  '&:hover': {
+    textDecoration: 'none',
+  },
+})
 
-const FooterLogo = styled(Link)`
-  font-size: 1.4em;
-  font-weight: 900;
-  color: #121212;
-  text-decoration: none;
-  margin-right: 2em;
-  :hover {
-    text-decoration: none;
-  }
-`
+const FooterLink = styled(Link)({
+  fontWeight: 600,
+  color: grey[900],
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'none',
+  },
+  marginRight: '2em',
+})
 
-const SocialLinks = styled.div`
-  display: flex;
-  align-items: center;
-`
-const FooterLink = styled(Link)`
-  font-weight: 600;
-  color: #121212;
-  text-decoration: none;
-  :hover {
-    text-decoration: none;
-  }
-  margin-right: 2em;
-`
+const Footer = () => {
+  const classes = useStyles()
 
-const Copyright = styled.p`
-  color: hsl(0, 0%, 70%);
-  margin-top: 1em;
-`
+  return (
+    <div className={classes.root}>
+      <Container>
+        <div className={classes.mainContent}>
+          <div className={classes.footerLeft}>
+            <FooterLogo to="/">JUST THE DARN RECIPE.</FooterLogo>
+            <div className={classes.socialLinks}>
+              <IconButton
+                aria-label="twitter"
+                href="https://twitter.com/TheDarnRecipe"
+                target="_blank"
+              >
+                <TwitterIcon />
+              </IconButton>
+              <IconButton
+                aria-label="facebook"
+                href="https://facebook.com/TheDarnRecipe"
+                target="_blank"
+              >
+                <FacebookIcon />
+              </IconButton>
+              <IconButton
+                aria-label="instagram"
+                href="https://instagram.com/TheDarnRecipe/"
+                target="_blank"
+              >
+                <InstagramIcon />
+              </IconButton>
+            </div>
+          </div>
+          <div className={classes.footerRight}>
+            <FooterLink to="/about">About</FooterLink>
+            <FooterLink to="/contact">Contact</FooterLink>
+          </div>
+        </div>
 
-const Footer = () => (
-  <Container>
-    <Wrapper>
-      <MainContent>
-        <FooterLeft>
-          <FooterLogo to="/">JUST THE DARN RECIPE.</FooterLogo>
-          <SocialLinks>
-            <IconButton
-              aria-label="twitter"
-              href="https://twitter.com/TheDarnRecipe"
-              target="_blank"
-            >
-              <TwitterIcon />
-            </IconButton>
-            <IconButton
-              aria-label="facebook"
-              href="https://facebook.com/TheDarnRecipe"
-              target="_blank"
-            >
-              <FacebookIcon />
-            </IconButton>
-            <IconButton
-              aria-label="instagram"
-              href="https://instagram.com/TheDarnRecipe/"
-              target="_blank"
-            >
-              <InstagramIcon />
-            </IconButton>
-          </SocialLinks>
-        </FooterLeft>
-        <FooterRight>
-          <FooterLink to="/about">About</FooterLink>
-          <FooterLink to="/contact">Contact</FooterLink>
-        </FooterRight>
-      </MainContent>
-
-      <Divider />
-      <Copyright>© 2020 Just the Darn Recipe.</Copyright>
-    </Wrapper>
-  </Container>
-)
+        <Divider />
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          className={classes.copyright}
+        >
+          © 2020 Just the Darn Recipe.
+        </Typography>
+      </Container>
+    </div>
+  )
+}
 
 export default Footer
