@@ -45,7 +45,6 @@ const Posts = ({ data, pageContext }) => {
   }
 
   const classes = useStyles()
-  console.log(pageContext)
 
   return (
     <Layout>

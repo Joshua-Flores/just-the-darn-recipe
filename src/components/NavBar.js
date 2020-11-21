@@ -9,6 +9,9 @@ import SearchIcon from '@material-ui/icons/Search'
 import { ThemeProvider } from '@material-ui/core/styles'
 import darkTheme from '../styles/darkTheme'
 import Search from './search'
+import MenuIcon from '../../static/images/menu-icon.svg'
+import Drawer from './Drawer'
+import Logo from './Logo'
 
 const searchIndices = [{ name: `Pages`, title: `Pages` }]
 
@@ -25,16 +28,6 @@ const useStyles = makeStyles({
     padding: '0px 24px',
     '@media (max-width:599.98px)': {
       padding: '0 16px',
-    },
-  },
-  logo: {
-    fontSize: '1.8em',
-    fontWeight: 900,
-    color: 'white',
-    textDecoration: 'none',
-    flexGrow: 1,
-    '@media (max-width:767.98px)': {
-      fontSize: '1.5em',
     },
   },
   menuLinksRight: {
@@ -55,53 +48,75 @@ const useStyles = makeStyles({
       color: 'white',
     },
   },
+  menuIconButton: {
+    margin: '0px 8px 0px -14px',
+    '@media (min-width:1024px)': {
+      display: 'none',
+    },
+  },
 })
 
 export default function NavBar() {
   const [searchActive, setSearchActive] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const classes = useStyles()
 
+  const handleDrawerOpen = () => setDrawerOpen(true)
+  const handleDrawerClosed = () => setDrawerOpen(false)
+
   return (
-    <ThemeProvider theme={darkTheme}>
-      <AppBar position="static" color="primary">
-        <Toolbar className={classes.toolbar}>
-          {!searchActive && (
-            <div className={classes.root}>
-              <Link to="/" className={classes.logo}>
-                JUST THE DARN RECIPE.
-              </Link>
-              <div className={classes.menuLinksRight}>
-                <Link
-                  to="/about"
-                  className={classes.menuItem}
-                  activeStyle={{ color: 'white' }}
+    <React.Fragment>
+      <ThemeProvider theme={darkTheme}>
+        <AppBar position="static" color="primary">
+          <Toolbar className={classes.toolbar}>
+            {!searchActive && (
+              <div className={classes.root}>
+                <IconButton
+                  aria-label="open menu"
+                  className={classes.menuIconButton}
+                  onClick={handleDrawerOpen}
                 >
-                  About
-                </Link>
-                <Link
-                  to="/contact"
-                  className={classes.menuItem}
-                  activeStyle={{ color: 'white' }}
+                  <img src={MenuIcon} alt="menu icon" />
+                </IconButton>
+                <Logo color="light" flexGrow />
+                <div className={classes.menuLinksRight}>
+                  <Link
+                    to="/about"
+                    className={classes.menuItem}
+                    activeStyle={{ color: 'white' }}
+                  >
+                    About
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className={classes.menuItem}
+                    activeStyle={{ color: 'white' }}
+                  >
+                    Contact
+                  </Link>
+                </div>
+                <IconButton
+                  aria-label="search"
+                  onClick={() => setSearchActive(true)}
                 >
-                  Contact
-                </Link>
+                  <SearchIcon />
+                </IconButton>
               </div>
-              <IconButton
-                aria-label="search"
-                onClick={() => setSearchActive(true)}
-              >
-                <SearchIcon />
-              </IconButton>
-            </div>
-          )}
-          {searchActive && (
-            <Search
-              indices={searchIndices}
-              closeSearch={() => setSearchActive(false)}
-            />
-          )}
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
+            )}
+            {searchActive && (
+              <Search
+                indices={searchIndices}
+                closeSearch={() => setSearchActive(false)}
+              />
+            )}
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
+      <Drawer
+        open={drawerOpen}
+        handleClose={handleDrawerClosed}
+        handleOpen={handleDrawerOpen}
+      />
+    </React.Fragment>
   )
 }

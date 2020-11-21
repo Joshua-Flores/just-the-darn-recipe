@@ -71,7 +71,7 @@ const FooterLink = styled(Link)({
   '&:hover': {
     textDecoration: 'none',
   },
-  marginRight: '2em',
+  margin: '0 2em .4em 0',
 })
 
 const Footer = () => {
