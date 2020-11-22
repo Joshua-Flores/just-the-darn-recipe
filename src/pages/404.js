@@ -1,54 +1,49 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import PageTitle from '../components/PageTitle'
-import Container from '../components/Container'
+import Container from '@material-ui/core/Container'
 import Layout from '../components/Layout'
 import errorImage from '../../static/images/404.svg'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-
+import { Button } from 'gatsby-theme-material-ui'
 import SEO from '../components/SEO'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+  root: {
+    textAlign: 'center',
+  },
+  button: {
+    margin: 'auto',
+  },
+})
 
 const Image = styled.img`
   width: 100%;
-  margin-bottom: 64px;
-`
-const ContainerSmall = styled.div`
-  max-width: 600px;
-  margin: auto;
+  margin: 4em auto 1em auto;
 `
 
-const Button = styled(Link)`
-  background: ${props => props.theme.colors.primary};
-  margin: auto;
-  color: white;
-  padding: 1em;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: 0.2s;
-  &:hover {
-    background: ${props => props.theme.colors.highlight};
-    cursor: pointer;
-  }
-  svg {
-    margin: auto 8px -6px auto;
-  }
-`
-
-const NotFoundPage = ({ data }) => (
-  <Layout>
-    <SEO title="404" description="Page Not Found" />
-    <Container>
-      <ContainerSmall>
-        <PageTitle>Oops! No recipe here.</PageTitle>
+const NotFoundPage = ({ data }) => {
+  const classes = useStyles()
+  return (
+    <Layout>
+      <SEO title="404" description="Page Not Found" />
+      <Container className={classes.root}>
         <Image src={errorImage} alt="404 error" />
-        <Button to="/">
-          <ArrowBackIcon />
-          Home
+        <PageTitle>Oops! No recipe here.</PageTitle>
+        <Button
+          className={classes.button}
+          color="primary"
+          size="large"
+          variant="contained"
+          startIcon={<ArrowBackIcon />}
+          to="/"
+        >
+          HOME
         </Button>
-      </ContainerSmall>
-    </Container>
-  </Layout>
-)
+      </Container>
+    </Layout>
+  )
+}
 
 export default NotFoundPage
