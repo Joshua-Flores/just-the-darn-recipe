@@ -61,7 +61,8 @@ const Pagination = props => {
             {props.context.previousPagePath && (
               <Button
                 color="primary"
-                size="large"
+                size="small"
+                variant="contained"
                 startIcon={<ArrowBackIcon />}
                 to={`${props.context.previousPagePath}`}
               >
@@ -71,7 +72,8 @@ const Pagination = props => {
             {props.context.nextPagePath && (
               <Button
                 color="primary"
-                size="large"
+                size="small"
+                variant="contained"
                 endIcon={<ArrowForwardIcon />}
                 to={`${props.context.nextPagePath}`}
                 className={classes.nextButton}

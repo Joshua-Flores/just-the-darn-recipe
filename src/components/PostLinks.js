@@ -24,8 +24,9 @@ const PostLinks = props => {
       <Box>
         {props.previous && (
           <Button
-            variant="contained"
             color="primary"
+            size="small"
+            variant="contained"
             startIcon={<ArrowBackIcon />}
             to={`${props.basePath}/${props.previous.slug}/`}
           >
@@ -34,8 +35,9 @@ const PostLinks = props => {
         )}
         {props.next && (
           <Button
-            variant="contained"
             color="primary"
+            size="small"
+            variant="contained"
             endIcon={<ArrowForwardIcon />}
             to={`${props.basePath}/${props.next.slug}/`}
           >

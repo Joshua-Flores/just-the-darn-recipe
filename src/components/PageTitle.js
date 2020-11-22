@@ -1,28 +1,24 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
 
-const Title = styled.h1`
-  font-size: ${props => (props.small ? '2em' : '3em')};
-  text-transform: uppercase;
-  font-weight: 900;
-  text-align: center;
-  margin: 0 0 3rem 0;
-  margin: ${props => (props.small ? '1rem 0 4rem 0' : '0 0 3rem 0')};
-  line-height: 1.2;
-  span {
-    margin: 0 0 0 0.25em;
-  }
-  a {
-    transition: all 0.2s;
-    color: ${props => props.theme.colors.text};
-    &:hover {
-      color: ${props => props.theme.colors.highlight};
-    }
-  }
-`
+const useStyles = makeStyles({
+  root: {
+    fontSize: '3em',
+    fontWeight: 900,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    margin: '0 0 1em 0',
+  },
+})
 
 const PageTitle = props => {
-  return <Title small={props.small}>{props.children}</Title>
+  const classes = useStyles()
+  return (
+    <Typography variant="h1" className={classes.root}>
+      {props.children}
+    </Typography>
+  )
 }
 
 export default PageTitle
