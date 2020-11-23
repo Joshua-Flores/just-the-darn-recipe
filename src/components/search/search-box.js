@@ -5,10 +5,8 @@ import CloseIcon from '@material-ui/icons/Close'
 import Input from '@material-ui/core/Input'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import { styled } from '@material-ui/core/styles'
-import grey from '@material-ui/core/colors/grey'
 
 const SearchInput = styled(Input)({
-  background: grey[800],
   padding: '.4em .4em .4em 1em',
 })
 

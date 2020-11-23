@@ -81,6 +81,13 @@ export default function NavBar() {
                 <Logo color="light" flexGrow />
                 <div className={classes.menuLinksRight}>
                   <Link
+                    to="/browse"
+                    className={classes.menuItem}
+                    activeStyle={{ color: 'white' }}
+                  >
+                    Browse All Recipes
+                  </Link>
+                  <Link
                     to="/about"
                     className={classes.menuItem}
                     activeStyle={{ color: 'white' }}
