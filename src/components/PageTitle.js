@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     fontWeight: 900,
     textAlign: 'center',
     textTransform: 'uppercase',
-    margin: '0 0 1em 0',
+    margin: '1em 0 1em 0',
   },
 })
 

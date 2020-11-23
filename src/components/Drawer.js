@@ -1,5 +1,4 @@
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import Logo from './Logo'
 import IconButton from '@material-ui/core/IconButton'
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
 import { makeStyles } from '@material-ui/core/styles'
@@ -11,6 +10,8 @@ import Card from '@material-ui/core/Card'
 import { CardActionArea } from 'gatsby-theme-material-ui'
 import CardContent from '@material-ui/core/CardContent'
 import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone'
+import BrowseRecipesIcon from '../../static/images/browse-recipes-icon.svg'
+import green from '@material-ui/core/colors/green'
 
 const useStyles = makeStyles({
   head: {
@@ -30,6 +31,17 @@ const useStyles = makeStyles({
   },
   drawer: {
     borderRadius: '10px 10px 0 0',
+  },
+  heroIcon: {
+    width: '60px',
+  },
+  new: {
+    backgroundColor: green['A400'],
+    textTransform: 'uppercase',
+    fontSize: '.8em',
+    borderRadius: '4px',
+    padding: '4px',
+    marginLeft: '4px',
   },
   root: {
     height: '60vh',
@@ -56,7 +68,26 @@ const NavDrawer = props => {
           </IconButton>
         </div>
         <Container>
-          <Grid container spacing={2}>
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <Card variant="outlined">
+                <CardActionArea to="/browse">
+                  <CardContent>
+                    <img
+                      src={BrowseRecipesIcon}
+                      alt="browse recipes icon"
+                      className={classes.heroIcon}
+                    />
+                    <Typography variant="body2">
+                      <strong>
+                        Browse all recipes{' '}
+                        <span className={classes.new}>NEW</span>
+                      </strong>
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
             <Grid item xs={6}>
               <Card variant="outlined">
                 <CardActionArea to="/about">
