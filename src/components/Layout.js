@@ -20,6 +20,21 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     flex: '1 0 auto',
   },
+  cookieNoticeTextContainer: {
+    '@media (min-width:600px)': {
+      display: 'flex',
+      paddingBottom: '16px',
+    },
+  },
+  cookieNoticeTitle: {
+    '@media (max-width:599.98px)': { display: 'block' },
+    fontWeight: 900,
+  },
+  cookieNoticeText: {
+    '@media (min-width:600px)': {
+      marginLeft: '4px',
+    },
+  },
 })
 
 const Layout = props => {
@@ -38,20 +53,41 @@ const Layout = props => {
         <CssBaseline />
         <CookieConsent
           location="bottom"
-          buttonText="I ACCEPT"
+          buttonText="ACCEPT"
           enableDeclineButton
-          declineButtonText="OPT OUT"
+          declineButtonText="DECLINE"
           cookieName="gatsby-gdpr-google-analytics"
-          style={{ background: '#212121' }}
-          declineButtonStyle={{ backgroundColor: red[500] }}
-          buttonStyle={{ backgroundColor: green[500], color: 'white' }}
+          style={{
+            background: '#303030',
+            boxShadow:
+              '0px -2px 8px -1px rgba(0,0,0,0.2), 0px -4px 8px 0px rgba(0,0,0,0.14), 0px -1px 20px 0px rgba(0,0,0,0.12)',
+          }}
+          declineButtonStyle={{
+            backgroundColor: 'hsla(0,0%,0%,0)',
+            color: red[300],
+            border: `1px solid ${red[300]}`,
+            borderRadius: '4px',
+            fontWeight: 600,
+            marginLeft: '16px',
+          }}
+          buttonStyle={{
+            backgroundColor: green['A400'],
+            color: 'white',
+            borderRadius: '4px',
+            fontWeight: 600,
+            color: '#303030',
+            marginLeft: '0px',
+          }}
+          contentStyle={{ marginBottom: '0px' }}
         >
-          🍪
-          <strong>
-            &nbsp;ANOTHER DARN COOKIE NOTICE<br></br>
-          </strong>
-          This site uses cookies from Google Analytics to analyze traffic and
-          improve the user experience.
+          <div className={classes.cookieNoticeTextContainer}>
+            <span className={classes.cookieNoticeTitle}>
+              🍪 &nbsp;ANOTHER DARN COOKIE NOTICE
+            </span>
+            <span className={classes.cookieNoticeText}>
+              This site uses cookies for analytical purposes.
+            </span>
+          </div>
         </CookieConsent>
         <div className={classes.siteContent}>
           <NavBar />
