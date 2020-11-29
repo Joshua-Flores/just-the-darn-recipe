@@ -69,7 +69,7 @@ const Posts = ({ data, pageContext }) => {
                 />
               </Grid>
               {posts.slice(1).map(({ node: post }) => (
-                <Grid item lg={4} md={6} sm={6} xs={12}>
+                <Grid item lg={4} md={6} sm={6} xs={12} key={post.id}>
                   <Card
                     basePath={basePath}
                     to={post.slug}
@@ -99,7 +99,7 @@ const Posts = ({ data, pageContext }) => {
                 >{`Latest posts page ${pageContext.humanPageNumber} of ${pageContext.numberOfPages}`}</Typography>
               </Grid>
               {posts.map(({ node: post }) => (
-                <Grid item lg={4} md={4} sm={6} xs={12}>
+                <Grid item lg={4} md={4} sm={6} xs={12} key={post.id}>
                   <Card
                     basePath={basePath}
                     to={post.slug}

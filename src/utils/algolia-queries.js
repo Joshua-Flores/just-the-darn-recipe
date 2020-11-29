@@ -39,7 +39,7 @@ const postQuery = `{
           recipeCuisine
           heroImage {
             fixed(width: 100, height:75) {
-              tracedSVG
+              base64
               aspectRatio
               srcWebp
               srcSetWebp
