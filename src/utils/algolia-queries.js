@@ -1,4 +1,4 @@
-const escapeStringRegexp = require("escape-string-regexp")
+const escapeStringRegexp = require('escape-string-regexp')
 
 const indexName = `Pages`
 
@@ -39,7 +39,6 @@ const postQuery = `{
           recipeCuisine
           heroImage {
             fixed(width: 100, height:75) {
-              base64
               tracedSVG
               aspectRatio
               srcWebp
@@ -57,7 +56,9 @@ const postQuery = `{
     }
   }`
 
-function postToAlgoliaRecord({ node: { id, slug, title, recipeCategory, recipeCuisine, heroImage, ...body } }) {
+function postToAlgoliaRecord({
+  node: { id, slug, title, recipeCategory, recipeCuisine, heroImage, ...body },
+}) {
   return {
     objectID: id,
     slug,
@@ -65,20 +66,22 @@ function postToAlgoliaRecord({ node: { id, slug, title, recipeCategory, recipeCu
     recipeCategory,
     recipeCuisine,
     heroImage,
-    ...body
+    ...body,
   }
 }
 
 const queries = [
   {
     query: pageQuery,
-    transformer: ({ data }) => data.allContentfulPage.edges.map(pageToAlgoliaRecord),
-    indexName
+    transformer: ({ data }) =>
+      data.allContentfulPage.edges.map(pageToAlgoliaRecord),
+    indexName,
   },
   {
     query: postQuery,
-    transformer: ({ data }) => data.allContentfulPost.edges.map(postToAlgoliaRecord),
-    indexName
+    transformer: ({ data }) =>
+      data.allContentfulPost.edges.map(postToAlgoliaRecord),
+    indexName,
   },
 ]
 
