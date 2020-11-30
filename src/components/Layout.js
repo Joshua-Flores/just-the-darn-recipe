@@ -5,7 +5,7 @@ import theme from '../styles/theme'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import NavBar from '../components/NavBar'
 import { makeStyles } from '@material-ui/core/styles'
-import CookieConsent from 'react-cookie-consent'
+import CookieConsent, { Cookies } from 'react-cookie-consent'
 import green from '@material-ui/core/colors/green'
 import red from '@material-ui/core/colors/red'
 
@@ -52,11 +52,11 @@ const Layout = props => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <CookieConsent
+          onAccept={() => Cookies.set('gatsby-gdpr-google-analytics', true)}
           location="bottom"
           buttonText="ACCEPT"
           enableDeclineButton
           declineButtonText="DECLINE"
-          cookieName="gatsby-gdpr-google-analytics"
           style={{
             background: '#303030',
             boxShadow:
