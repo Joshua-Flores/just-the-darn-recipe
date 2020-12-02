@@ -93,10 +93,10 @@ const Menu = () => {
             <Logo to="/">JUST THE DARN RECIPE.</Logo>
             <RightNavLinks>
               <NavLink to="/about" activeStyle={{ color: 'white' }}>
-                ABOUT
+                ABOUT US
               </NavLink>
               <NavLink to="/contact" activeStyle={{ color: 'white' }}>
-                CONTACT
+                CONTACT US
               </NavLink>
               <DarkIconButton onClick={() => setSearchActive(true)}>
                 <SearchIconWhite />

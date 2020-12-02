@@ -85,21 +85,21 @@ export default function NavBar() {
                     className={classes.menuItem}
                     activeStyle={{ color: 'white' }}
                   >
-                    Browse All Recipes
+                    BROWSE ALL RECIPES
                   </Link>
                   <Link
                     to="/about"
                     className={classes.menuItem}
                     activeStyle={{ color: 'white' }}
                   >
-                    About
+                    ABOUT US
                   </Link>
                   <Link
                     to="/contact"
                     className={classes.menuItem}
                     activeStyle={{ color: 'white' }}
                   >
-                    Contact
+                    CONTACT
                   </Link>
                 </div>
                 <IconButton

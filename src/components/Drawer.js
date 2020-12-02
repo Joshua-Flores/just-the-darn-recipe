@@ -4,12 +4,12 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
-import SendTwoToneIcon from '@material-ui/icons/SendTwoTone'
+import MessageIcon from '@material-ui/icons/Message'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import { CardActionArea } from 'gatsby-theme-material-ui'
 import CardContent from '@material-ui/core/CardContent'
-import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone'
+import InfoIcon from '@material-ui/icons/Info'
 import BrowseRecipesIcon from '../../static/images/browse-recipes-icon.svg'
 import green from '@material-ui/core/colors/green'
 
@@ -80,7 +80,7 @@ const NavDrawer = props => {
                     />
                     <Typography variant="body2">
                       <strong>
-                        Browse all recipes{' '}
+                        BROWSE ALL RECIPES{' '}
                         <span className={classes.new}>NEW</span>
                       </strong>
                     </Typography>
@@ -92,9 +92,9 @@ const NavDrawer = props => {
               <Card variant="outlined">
                 <CardActionArea to="/about">
                   <CardContent>
-                    <InfoTwoToneIcon color="secondary" />
+                    <InfoIcon color="primary" />
                     <Typography variant="body2">
-                      <strong>About</strong>
+                      <strong>ABOUT US</strong>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -104,9 +104,9 @@ const NavDrawer = props => {
               <Card variant="outlined">
                 <CardActionArea to="/contact">
                   <CardContent>
-                    <SendTwoToneIcon color="secondary" />
+                    <MessageIcon color="primary" />
                     <Typography variant="body2">
-                      <strong>Contact</strong>
+                      <strong>CONTACT</strong>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
