@@ -63,9 +63,9 @@ const Posts = ({ data, pageContext }) => {
                   featuredHeroImage={featuredPost.heroImage.fluid}
                   publishDate={featuredPost.publishDate}
                   title={featuredPost.title}
-                  excerpt={{
-                    __html: featuredPost.body.childMarkdownRemark.excerpt,
-                  }}
+                  excerpt={
+                    featuredPost.metaDescription.childMarkdownRemark.excerpt
+                  }
                 />
               </Grid>
               {posts.slice(1).map(({ node: post }) => (
@@ -76,9 +76,7 @@ const Posts = ({ data, pageContext }) => {
                     image={post.heroImage.fluid}
                     publishDate={post.publishDate}
                     title={post.title}
-                    excerpt={{
-                      __html: post.body.childMarkdownRemark.excerpt,
-                    }}
+                    excerpt={post.metaDescription.childMarkdownRemark.excerpt}
                   />
                 </Grid>
               ))}
@@ -106,9 +104,7 @@ const Posts = ({ data, pageContext }) => {
                     image={post.heroImage.fluid}
                     publishDate={post.publishDate}
                     title={post.title}
-                    excerpt={{
-                      __html: post.body.childMarkdownRemark.excerpt,
-                    }}
+                    excerpt={post.metaDescription.childMarkdownRemark.excerpt}
                   />
                 </Grid>
               ))}
@@ -134,6 +130,8 @@ export const query = graphql`
           id
           slug
           publishDate(formatString: "MMMM DD, YYYY")
+          totalTime
+          recipeYield
           heroImage {
             title
             fluid(maxWidth: 1800) {
@@ -141,6 +139,12 @@ export const query = graphql`
             }
             ogimg: resize(width: 1800) {
               src
+            }
+          }
+          metaDescription {
+            id
+            childMarkdownRemark {
+              excerpt
             }
           }
           body {
