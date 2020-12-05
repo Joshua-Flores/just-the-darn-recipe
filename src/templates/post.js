@@ -7,6 +7,7 @@ import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostSEO from '../components/PostSEO'
+import About from '../components/about-section/About'
 
 const PostTemplate = ({ data, pageContext }) => {
   const {
@@ -68,7 +69,12 @@ const PostTemplate = ({ data, pageContext }) => {
           date={publishDate}
           url={slug}
         />
-
+        <About
+          prepTime={prepTime}
+          cookTime={cookTime}
+          totalTime={totalTime}
+          servings={recipeYield}
+        />
         <PageBody body={body} />
       </Container>
       <PostLinks previous={previous} next={next} basePath={basePath} />
