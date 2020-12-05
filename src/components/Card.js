@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import { styled } from '@material-ui/core/styles'
 import Img from 'gatsby-image'
+import TotalTime from './about-section/TotalTime'
+import Servings from './about-section/Servings'
 
 const useStyles = makeStyles({
   root: {
@@ -29,6 +31,9 @@ const HeroImage = styled(Img)({
   '@media (max-width:425px)': {
     height: '200px',
   },
+  stats: {
+    display: 'flex',
+  },
 })
 
 const CardComponent = props => {
@@ -46,15 +51,10 @@ const CardComponent = props => {
           <Typography variant="overline" color="textSecondary">
             {props.publishDate}
           </Typography>
-          <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h2" gutterBottom>
             {props.title}
           </Typography>
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            dangerouslySetInnerHTML={props.excerpt}
-          ></Typography>
+          <Typography variant="body2">{props.excerpt}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>
