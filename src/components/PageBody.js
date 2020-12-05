@@ -2,8 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Body = styled.div`
-  margin: 0 auto;
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  max-width: 650px;
+  margin: auto;
   h1,
   h2,
   h3 {
