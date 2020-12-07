@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import SearchResult from './search-result'
+import grey from '@material-ui/core/colors/grey'
 
 const Popover = css`
   max-height: 80vh;
@@ -46,10 +47,15 @@ export default styled(SearchResult)`
         color: ${({ theme }) => theme.foreground};
 
         h4 {
-          margin-bottom: 0.2em;
-          font-weight: 700;
+          margin: 0 0 0.2em 0;
+          font-weight: 900;
           line-height: 1.2em;
+          text-transform: uppercase;
         }
+      }
+      p {
+        color: ${grey[700]};
+        margin: 0 0 0 0;
       }
     }
   }
