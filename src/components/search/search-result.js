@@ -9,6 +9,7 @@ import {
 } from 'react-instantsearch-dom'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
+import Typography from '@material-ui/core/Typography'
 
 const Thumbnail = styled(Img)`
   width: 100px;
@@ -19,10 +20,13 @@ const Thumbnail = styled(Img)`
 `
 const HitContainer = styled.div`
   display: flex;
-
   div:first-of-type {
     width: 100px;
     height: 75px;
+  }
+
+  p {
+    color: black;
   }
 `
 
@@ -37,12 +41,27 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <HitContainer>
+    {console.log(hit)}
     {hit.heroImage && <Thumbnail fixed={hit.heroImage.fixed} />}
-    <Link to={`/${hit.slug}`}>
-      <h4>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
-      </h4>
-    </Link>
+    <div>
+      <Link to={`/${hit.slug}`}>
+        <h4>
+          <Highlight attribute="title" hit={hit} tagName="mark" />
+        </h4>
+      </Link>
+      {hit.recipeCategory && (
+        <p>
+          <strong>Category: </strong>
+          <Highlight attribute="recipeCategory" hit={hit} tagName="mark" />
+        </p>
+      )}
+      {hit.recipeCuisine && (
+        <p>
+          <strong>Cuisine: </strong>
+          <Highlight attribute="recipeCuisine" hit={hit} tagName="mark" />
+        </p>
+      )}
+    </div>
   </HitContainer>
 )
 

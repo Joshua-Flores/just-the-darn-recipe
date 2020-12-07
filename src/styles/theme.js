@@ -12,6 +12,9 @@ const theme = createMuiTheme({
         html: {
           height: '100%',
         },
+        '.ais-Highlight-highlighted': {
+          backgroundColor: green['A200'],
+        },
       },
     },
   },
