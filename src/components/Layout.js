@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import CookieConsent, { Cookies } from 'react-cookie-consent'
 import { useLocation } from '@reach/router'
 import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies'
+import Helmet from 'react-helmet'
 import green from '@material-ui/core/colors/green'
 import red from '@material-ui/core/colors/red'
 
@@ -94,6 +95,14 @@ const Layout = props => {
             </span>
           </div>
         </CookieConsent>
+        <Helmet>
+          <script
+            async
+            defer
+            data-domain="justthedarnrecipe.com"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
+        </Helmet>
         <div className={classes.siteContent}>
           <NavBar />
           <div id="main">{props.children}</div>
