@@ -15,17 +15,17 @@ const Body = styled.div`
     font-size: 1.6rem;
   }
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
   }
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    margin-top: 2rem;
   }
 
   p {
     font-size: 1rem;
     line-height: 1.6;
-    margin: 0 0 2em 0;
   }
 
   a {
@@ -49,7 +49,7 @@ const Body = styled.div`
       list-style: disc;
       list-style-position: outside;
       line-height: 1.6;
-      margin-bottom: 0.8em;
+      margin-bottom: 0.4em;
       padding-left: 8px;
       &:last-child {
         margin: 0;
@@ -63,7 +63,7 @@ const Body = styled.div`
       list-style: decimal;
       list-style-position: outside;
       line-height: 1.6;
-      margin-bottom: 0.8em;
+      margin-bottom: 0.4em;
       padding-left: 8px;
       &:last-child {
         margin: 0;
