@@ -108,9 +108,9 @@ const Footer = () => {
             </div>
           </div>
           <div className={classes.footerRight}>
-            <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
             <FooterLink to="/about">About</FooterLink>
             <FooterLink to="/contact">Contact</FooterLink>
+            <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
           </div>
         </div>
 

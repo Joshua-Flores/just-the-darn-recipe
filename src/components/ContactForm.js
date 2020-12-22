@@ -120,7 +120,6 @@ class ContactForm extends React.Component {
                 color="secondary"
                 value={this.state.name}
                 onChange={this.handleInputChange}
-                required
                 fullWidth
               />
             </Grid>
