@@ -5,8 +5,17 @@ import Container from '@material-ui/core/Container'
 import PageTitle from '../components/PageTitle'
 import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: '700px',
+    marginBottom: '4em',
+  },
+})
 
 const PageTemplate = ({ data }) => {
+  const classes = useStyles()
   const { title, metaDescription, body } = data.contentfulPage
   return (
     <Layout>
@@ -18,7 +27,7 @@ const PageTemplate = ({ data }) => {
             : body.childMarkdownRemark.excerpt
         }
       />
-      <Container>
+      <Container className={classes.root}>
         <PageTitle>{title}</PageTitle>
         <PageBody body={body} />
       </Container>
