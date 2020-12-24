@@ -6,7 +6,6 @@ const useStyles = makeStyles({
   root: {
     fontSize: '3em',
     fontWeight: 900,
-    textAlign: 'center',
     textTransform: 'uppercase',
     margin: '1em 0 1em 0',
   },

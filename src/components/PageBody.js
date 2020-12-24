@@ -2,13 +2,16 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Body = styled.div`
-  max-width: 650px;
   margin: auto;
   h1,
   h2,
   h3 {
     font-weight: 700;
     text-transform: capitalize;
+  }
+
+  img {
+    width: 50px;
   }
 
   h1 {
