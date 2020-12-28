@@ -5,47 +5,40 @@ import { Button } from 'gatsby-theme-material-ui'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 
-const Wrapper = styled.div`
-  margin: 2em 0 0 0;
-  padding: 0 1.5em 2em;
-`
-
-const Box = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 100%;
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
-`
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    justifyContent: props => (props.previous ? 'space-between' : 'flex-end'),
+    margin: '2em auto auto auto',
+    width: '100%',
+  },
+})
 
 const PostLinks = props => {
+  const classes = useStyles(props)
   return (
-    <Wrapper>
-      <Box>
-        {props.previous && (
-          <Button
-            color="primary"
-            size="small"
-            variant="contained"
-            startIcon={<ArrowBackIcon />}
-            to={`${props.basePath}/${props.previous.slug}/`}
-          >
-            PREV
-          </Button>
-        )}
-        {props.next && (
-          <Button
-            color="primary"
-            size="small"
-            variant="contained"
-            endIcon={<ArrowForwardIcon />}
-            to={`${props.basePath}/${props.next.slug}/`}
-          >
-            Next
-          </Button>
-        )}
-      </Box>
-    </Wrapper>
+    <div className={classes.root}>
+      {props.previous && (
+        <Button
+          color="primary"
+          variant="contained"
+          startIcon={<ArrowBackIcon />}
+          to={`${props.basePath}/${props.previous.slug}/`}
+        >
+          PREV
+        </Button>
+      )}
+      {props.next && (
+        <Button
+          color="primary"
+          variant="contained"
+          endIcon={<ArrowForwardIcon />}
+          to={`${props.basePath}/${props.next.slug}/`}
+        >
+          Next
+        </Button>
+      )}
+    </div>
   )
 }
 

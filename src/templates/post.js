@@ -8,8 +8,17 @@ import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostSEO from '../components/PostSEO'
 import About from '../components/about-section/About'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+  recipeBody: {
+    maxWidth: '700px',
+    margin: 'auto auto 2em auto',
+  },
+})
 
 const PostTemplate = ({ data, pageContext }) => {
+  const classes = useStyles()
   const {
     title,
     slug,
@@ -69,15 +78,17 @@ const PostTemplate = ({ data, pageContext }) => {
           date={publishDate}
           url={slug}
         />
-        <About
-          prepTime={prepTime}
-          cookTime={cookTime}
-          totalTime={totalTime}
-          servings={recipeYield}
-        />
-        <PageBody body={body} />
+        <div className={classes.recipeBody}>
+          <About
+            prepTime={prepTime}
+            cookTime={cookTime}
+            totalTime={totalTime}
+            servings={recipeYield}
+          />
+          <PageBody body={body} />
+          <PostLinks previous={previous} next={next} basePath={basePath} />
+        </div>
       </Container>
-      <PostLinks previous={previous} next={next} basePath={basePath} />
     </Layout>
   )
 }

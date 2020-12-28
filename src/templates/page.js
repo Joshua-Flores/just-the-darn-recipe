@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
   root: {
     maxWidth: '700px',
-    marginBottom: '4em',
+    margin: 'auto auto 4em auto',
   },
 })
 
@@ -29,6 +29,7 @@ const PageTemplate = ({ data }) => {
       />
       <Container className={classes.root}>
         <PageTitle>{title}</PageTitle>
+
         <PageBody body={body} />
       </Container>
     </Layout>

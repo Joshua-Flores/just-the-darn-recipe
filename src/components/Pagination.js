@@ -1,7 +1,6 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 import styled from '@emotion/styled'
-import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import { makeStyles } from '@material-ui/core/styles'
@@ -13,18 +12,15 @@ const useStyles = makeStyles({
   formControl: {
     minWidth: 60,
   },
-  nextButton: {
-    marginLeft: '1em',
-  },
 })
 
 const Wrapper = styled.div`
   width: 100%;
-  margin: 2em auto 2em auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  margin: 2em auto;
 `
 
 const Pagination = props => {
@@ -42,6 +38,16 @@ const Pagination = props => {
     <div>
       {props.context.numberOfPages > 1 && (
         <Wrapper>
+          {props.context.previousPagePath && (
+            <Button
+              color="primary"
+              variant="contained"
+              startIcon={<ArrowBackIcon />}
+              to={`${props.context.previousPagePath}`}
+            >
+              PREV
+            </Button>
+          )}
           <FormControl className={classes.formControl}>
             <Select
               native
@@ -57,31 +63,16 @@ const Pagination = props => {
               ))}
             </Select>
           </FormControl>
-          <div>
-            {props.context.previousPagePath && (
-              <Button
-                color="primary"
-                size="small"
-                variant="contained"
-                startIcon={<ArrowBackIcon />}
-                to={`${props.context.previousPagePath}`}
-              >
-                PREV
-              </Button>
-            )}
-            {props.context.nextPagePath && (
-              <Button
-                color="primary"
-                size="small"
-                variant="contained"
-                endIcon={<ArrowForwardIcon />}
-                to={`${props.context.nextPagePath}`}
-                className={classes.nextButton}
-              >
-                Next
-              </Button>
-            )}
-          </div>
+          {props.context.nextPagePath && (
+            <Button
+              color="primary"
+              variant="contained"
+              endIcon={<ArrowForwardIcon />}
+              to={`${props.context.nextPagePath}`}
+            >
+              Next
+            </Button>
+          )}
         </Wrapper>
       )}
     </div>
