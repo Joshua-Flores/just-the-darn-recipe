@@ -11,7 +11,6 @@ const useStyles = makeStyles({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    maxWidth: '650px',
     margin: 'auto',
     justifyContent: 'space-between',
     '@media (max-width:767.98px)': {
