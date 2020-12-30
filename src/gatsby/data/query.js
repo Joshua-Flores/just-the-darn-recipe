@@ -18,16 +18,4 @@ module.exports.data = {
       }
     }
   }`,
-  tags: `{
-    allContentfulTag {
-      edges {
-        node {
-          slug
-          post {
-            id
-          }
-        }
-      }
-    }
-  }`,
 }

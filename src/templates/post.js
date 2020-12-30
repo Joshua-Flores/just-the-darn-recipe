@@ -4,7 +4,6 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Container from '@material-ui/core/Container'
 import PageBody from '../components/PageBody'
-import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostSEO from '../components/PostSEO'
 import About from '../components/about-section/About'
@@ -27,7 +26,6 @@ const PostTemplate = ({ data, pageContext }) => {
     body,
     publishDate,
     publishDateISO,
-    tags,
     recipeCuisine,
     recipeCategory,
     prepTime,
@@ -70,7 +68,6 @@ const PostTemplate = ({ data, pageContext }) => {
       />
 
       <Container maxWidth="md">
-        {tags && <TagList tags={tags} basePath={basePath} />}
         <Hero
           title={title}
           image={heroImage}
@@ -105,11 +102,6 @@ export const query = graphql`
       }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      tags {
-        title
-        id
-        slug
-      }
       heroImage {
         title
         fluid(maxWidth: 1800) {

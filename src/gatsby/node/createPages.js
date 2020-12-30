@@ -41,30 +41,6 @@ module.exports = async ({ graphql, actions }) => {
     },
   })
 
-  // Create "tag" page and paginate
-  const tagsQuery = await graphql(query.data.tags)
-  const tags = tagsQuery.data.allContentfulTag.edges
-
-  tags.forEach((tag, i) => {
-    const tagPagination =
-      basePath === '/'
-        ? `/tag/${tag.node.slug}`
-        : `/${basePath}/tag/${tag.node.slug}`
-
-    paginate({
-      createPage,
-      component: path.resolve(`./src/templates/tag.js`),
-      items: tag.node.post || [],
-      itemsPerPage: config.siteMetadata.postsPerPage || 6,
-      pathPrefix: tagPagination,
-      context: {
-        slug: tag.node.slug,
-        basePath: basePath === '/' ? '' : basePath,
-        paginationPath: tagPagination,
-      },
-    })
-  })
-
   // Create a page for each "page"
   const pagesQuery = await graphql(query.data.pages)
   const pages = pagesQuery.data.allContentfulPage.edges
