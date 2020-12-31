@@ -45,7 +45,11 @@ const CardComponent = props => {
         {props.featuredHeroImage ? (
           <HeroImage fluid={props.featuredHeroImage} />
         ) : (
-          <Img fluid={props.image} className={classes.defaultImage} />
+          <Img
+            fluid={props.image}
+            className={classes.defaultImage}
+            loading="eager"
+          />
         )}
         <CardContent>
           <Typography variant="overline" color="textSecondary">
