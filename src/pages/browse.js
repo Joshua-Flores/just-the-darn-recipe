@@ -89,6 +89,7 @@ const BrowseAllRecipes = ({ data }) => {
               <Img
                 fluid={recipe.node.heroImage.fluid}
                 className={classes.cardImage}
+                loading="eager"
               />
               <CardContent className={classes.cardContent}>
                 <Typography variant="subtitle1" className={classes.cardTitle}>
