@@ -24,6 +24,9 @@ const useStyles = makeStyles({
   card: {
     height: '100%',
   },
+  divider: {
+    marginTop: '2em',
+  },
 })
 
 const Posts = ({ data, pageContext }) => {

@@ -20,7 +20,7 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'JUST THE DARN RECIPE',
-    description: 'No stories. No ads. Just the darn recipe.',
+    description: 'No stories. No ads. Just the Darn Recipe.',
     siteUrl: 'https://www.justthedarnrecipe.com',
     image: '/images/share.jpg',
     menuLinks: [
@@ -38,7 +38,7 @@ module.exports = {
       },
     ],
     postsPerFirstPage: 7,
-    postsPerPage: 6,
+    postsPerPage: 9,
     basePath: '/',
   },
   plugins: [
