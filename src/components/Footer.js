@@ -88,6 +88,7 @@ const Footer = () => {
                 aria-label="twitter"
                 href="https://twitter.com/TheDarnRecipe"
                 target="_blank"
+                rel="noreferrer"
               >
                 <TwitterIcon />
               </IconButton>
@@ -95,6 +96,7 @@ const Footer = () => {
                 aria-label="facebook"
                 href="https://facebook.com/TheDarnRecipe"
                 target="_blank"
+                rel="noreferrer"
               >
                 <FacebookIcon />
               </IconButton>
@@ -102,6 +104,7 @@ const Footer = () => {
                 aria-label="instagram"
                 href="https://instagram.com/TheDarnRecipe/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <InstagramIcon />
               </IconButton>
