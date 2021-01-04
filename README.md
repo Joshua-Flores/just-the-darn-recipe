@@ -74,7 +74,7 @@ Edit siteMeta data in [`/src/gatsby-config.js`](https://github.com/ryanwiemer/ga
         slug: '/contact/',
       },
     ],
-    postsPerFirstPage: 7, // Number of posts on the first page
+    postsPerFirstPage: 6, // Number of posts on the first page
     postsPerPage: 6, // Number of posts used on all other pages
     /*
       Root URL for posts and tags

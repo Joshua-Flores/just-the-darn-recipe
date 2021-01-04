@@ -41,7 +41,6 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <HitContainer>
-    {console.log(hit)}
     {hit.heroImage && <Thumbnail fixed={hit.heroImage.fixed} />}
     <div>
       <Link to={`/${hit.slug}`}>
