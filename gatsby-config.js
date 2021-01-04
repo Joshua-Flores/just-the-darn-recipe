@@ -37,7 +37,7 @@ module.exports = {
         slug: '/contact/',
       },
     ],
-    postsPerFirstPage: 7,
+    postsPerFirstPage: 6,
     postsPerPage: 9,
     basePath: '/',
   },
@@ -45,7 +45,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-emotion`,
-    'gatsby-plugin-preact',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
     {

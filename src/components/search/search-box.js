@@ -14,7 +14,7 @@ export default connectSearchBox(
   ({ refine, currentRefinement, className, onFocus, closeSearch }) => (
     <form className={className} onSubmit={e => e.preventDefault()}>
       <SearchInput
-        placeholder="Search"
+        placeholder="Search Just the Darn Recipe"
         fullWidth
         color="secondary"
         autoFocus

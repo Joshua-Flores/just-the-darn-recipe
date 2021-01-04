@@ -10,9 +10,9 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { styled } from '@material-ui/core/styles'
 import { makeStyles } from '@material-ui/core/styles'
+import HomepageHero from '../components/homepage/Hero'
 
 const LatestPostsHeading = styled(Typography)({
-  marginTop: '1em',
   fontSize: '1.7em',
 })
 
@@ -24,23 +24,14 @@ const useStyles = makeStyles({
   card: {
     height: '100%',
   },
-  divider: {
-    marginTop: '2em',
-  },
 })
 
 const Posts = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
   const { humanPageNumber, basePath } = pageContext
   const isFirstPage = humanPageNumber === 1
-  let featuredPost
   let ogImage
 
-  try {
-    featuredPost = posts[0].node
-  } catch (error) {
-    featuredPost = null
-  }
   try {
     ogImage = posts[0].node.heroImage.ogimg.src
   } catch (error) {
@@ -55,23 +46,12 @@ const Posts = ({ data, pageContext }) => {
       <Container>
         {isFirstPage ? (
           <div>
+            <HomepageHero />
             <LatestPostsHeading variant="h5" component="h1">
-              Latest Posts
+              Latest Recipes
             </LatestPostsHeading>
             <Grid container spacing={3} alignItems="stretch">
-              <Grid item lg={12} md={12} sm={12} xs={12}>
-                <Card
-                  basePath={basePath}
-                  to={featuredPost.slug}
-                  featuredHeroImage={featuredPost.heroImage.fluid}
-                  publishDate={featuredPost.publishDate}
-                  title={featuredPost.title}
-                  excerpt={
-                    featuredPost.metaDescription.childMarkdownRemark.excerpt
-                  }
-                />
-              </Grid>
-              {posts.slice(1).map(({ node: post }) => (
+              {posts.map(({ node: post }) => (
                 <Grid item lg={4} md={6} sm={6} xs={12} key={post.id}>
                   <Card
                     basePath={basePath}
@@ -97,7 +77,7 @@ const Posts = ({ data, pageContext }) => {
                   variant="body1"
                   color="textSecondary"
                   component="h1"
-                >{`Latest posts page ${pageContext.humanPageNumber} of ${pageContext.numberOfPages}`}</Typography>
+                >{`Latest recipes page ${pageContext.humanPageNumber} of ${pageContext.numberOfPages}`}</Typography>
               </Grid>
               {posts.map(({ node: post }) => (
                 <Grid item lg={4} md={4} sm={6} xs={12} key={post.id}>
@@ -137,10 +117,10 @@ export const query = graphql`
           recipeYield
           heroImage {
             title
-            fluid(maxWidth: 1300) {
+            fluid(maxWidth: 600) {
               ...GatsbyContentfulFluid
             }
-            ogimg: resize(width: 1300) {
+            ogimg: resize(width: 600) {
               src
             }
           }
@@ -148,13 +128,6 @@ export const query = graphql`
             id
             childMarkdownRemark {
               excerpt
-            }
-          }
-          body {
-            childMarkdownRemark {
-              timeToRead
-              html
-              excerpt(pruneLength: 80)
             }
           }
         }
