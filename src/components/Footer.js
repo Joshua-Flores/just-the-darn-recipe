@@ -118,12 +118,8 @@ const Footer = () => {
         </div>
 
         <Divider />
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          className={classes.copyright}
-        >
-          © 2020 Just the Darn Recipe.
+        <Typography variant="body2" className={classes.copyright}>
+          © 2021 Just the Darn Recipe.
         </Typography>
       </Container>
     </div>

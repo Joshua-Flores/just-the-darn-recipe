@@ -31,7 +31,7 @@ const Hero = () => {
         A DIFFERENT KIND OF RECIPE WEBSITE
       </Typography>
       <Typography
-        variant="h5"
+        variant="body1"
         className={classes.subheading}
         color="textSecondary"
       >
