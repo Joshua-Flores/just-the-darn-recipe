@@ -51,11 +51,7 @@ const PostTemplate = ({ data, pageContext }) => {
       <PostSEO
         title={title}
         slug={slug}
-        description={
-          metaDescription
-            ? metaDescription.internal.content
-            : body.childMarkdownRemark.excerpt
-        }
+        description={metaDescription.internal.content}
         image={ogImage}
         datePublished={publishDateISO}
         recipeCuisine={recipeCuisine}
@@ -104,17 +100,16 @@ export const query = graphql`
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       heroImage {
         title
-        fluid(maxWidth: 1800) {
+        fluid(maxWidth: 920) {
           ...GatsbyContentfulFluid
         }
-        ogimg: resize(width: 1800) {
+        ogimg: resize(width: 920) {
           src
         }
       }
       body {
         childMarkdownRemark {
           html
-          excerpt(pruneLength: 320)
         }
       }
       recipeCuisine
