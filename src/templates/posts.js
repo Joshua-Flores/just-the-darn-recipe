@@ -52,7 +52,7 @@ const Posts = ({ data, pageContext }) => {
             </LatestPostsHeading>
             <Grid container spacing={3} alignItems="stretch">
               {posts.map(({ node: post }) => (
-                <Grid item lg={4} md={6} sm={6} xs={12} key={post.id}>
+                <Grid item lg={4} md={4} sm={6} xs={12} key={post.id}>
                   <Card
                     basePath={basePath}
                     to={post.slug}
@@ -117,10 +117,10 @@ export const query = graphql`
           recipeYield
           heroImage {
             title
-            fluid(maxWidth: 600) {
+            fluid(maxWidth: 400) {
               ...GatsbyContentfulFluid
             }
-            ogimg: resize(width: 600) {
+            ogimg: resize(width: 400) {
               src
             }
           }
