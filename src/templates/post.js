@@ -100,10 +100,10 @@ export const query = graphql`
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       heroImage {
         title
-        fluid(maxWidth: 920) {
+        fluid(maxWidth: 920, quality: 100) {
           ...GatsbyContentfulFluid
         }
-        ogimg: resize(width: 920) {
+        ogimg: resize(width: 920, quality: 100) {
           src
         }
       }
