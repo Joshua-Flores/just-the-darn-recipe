@@ -116,10 +116,10 @@ export const query = graphql`
           recipeYield
           heroImage {
             title
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 400, quality: 100) {
               ...GatsbyContentfulFluid
             }
-            ogimg: resize(width: 400) {
+            ogimg: resize(width: 400, quality: 100) {
               src
             }
           }
