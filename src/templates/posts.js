@@ -14,6 +14,8 @@ import HomepageHero from '../components/homepage/Hero'
 
 const LatestPostsHeading = styled(Typography)({
   fontSize: '1.7em',
+  fontWeight: 700,
+  margin: '.7em auto',
 })
 
 const SecondaryPageGridContainer = styled(Grid)({
@@ -47,12 +49,10 @@ const Posts = ({ data, pageContext }) => {
         {isFirstPage ? (
           <div>
             <HomepageHero />
-            <LatestPostsHeading variant="h5" component="h1">
-              Latest Recipes
-            </LatestPostsHeading>
+            <LatestPostsHeading variant="h2">Latest Recipes</LatestPostsHeading>
             <Grid container spacing={3} alignItems="stretch">
               {posts.map(({ node: post }) => (
-                <Grid item lg={4} md={6} sm={6} xs={12} key={post.id}>
+                <Grid item lg={4} md={4} sm={6} xs={12} key={post.id}>
                   <Card
                     basePath={basePath}
                     to={post.slug}
@@ -75,7 +75,6 @@ const Posts = ({ data, pageContext }) => {
               <Grid item lg={12} md={12} sm={12} xs={12}>
                 <Typography
                   variant="body1"
-                  color="textSecondary"
                   component="h1"
                 >{`Latest recipes page ${pageContext.humanPageNumber} of ${pageContext.numberOfPages}`}</Typography>
               </Grid>
@@ -117,10 +116,10 @@ export const query = graphql`
           recipeYield
           heroImage {
             title
-            fluid(maxWidth: 600) {
+            fluid(maxWidth: 400, quality: 100) {
               ...GatsbyContentfulFluid
             }
-            ogimg: resize(width: 600) {
+            ogimg: resize(width: 400, quality: 100) {
               src
             }
           }

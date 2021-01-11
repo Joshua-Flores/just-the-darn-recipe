@@ -56,6 +56,7 @@ class PostDetails extends React.Component {
                 aria-label="twitter"
                 href={`https://twitter.com/intent/tweet?text=Check%20out%20this%20darn%20recipe!&url=https://justthedarnrecipe.com/${this.props.url}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 <TwitterIcon />
               </IconButton>
@@ -65,6 +66,7 @@ class PostDetails extends React.Component {
                 aria-label="facebook"
                 href={`https://www.facebook.com/sharer/sharer.php?u=https://justthedarnrecipe.com/${this.props.url}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 <FacebookIcon />
               </IconButton>

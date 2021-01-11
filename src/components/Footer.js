@@ -10,11 +10,15 @@ import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import grey from '@material-ui/core/colors/grey'
 import Typography from '@material-ui/core/Typography'
+import { Button } from 'gatsby-theme-material-ui'
 
 const useStyles = makeStyles({
   root: {
     backgroundColor: grey[200],
     padding: '1em 0 2em 0',
+    '@media (max-width: 575.98px)': {
+      padding: '2em 0 1em 0',
+    },
   },
   mainContent: {
     display: 'flex',
@@ -36,17 +40,15 @@ const useStyles = makeStyles({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'baseline',
-      'a:first-of-type': {
-        marginTop: '1em',
-      },
-      a: {
-        marginBottom: '1em',
-      },
+      marginLeft: '-12px',
     },
   },
   socialLinks: {
     display: 'flex',
     alignItems: 'center',
+    '@media (max-width: 575.98px)': {
+      marginLeft: '-12px',
+    },
   },
   copyright: {
     marginTop: '1em',
@@ -54,7 +56,7 @@ const useStyles = makeStyles({
 })
 
 const FooterLogo = styled(Link)({
-  fontSize: '1.4em',
+  fontSize: '1.6em',
   fontWeight: 900,
   color: grey[900],
   textDecoration: 'none',
@@ -62,16 +64,6 @@ const FooterLogo = styled(Link)({
   '&:hover': {
     textDecoration: 'none',
   },
-})
-
-const FooterLink = styled(Link)({
-  fontWeight: 600,
-  color: grey[900],
-  textDecoration: 'none',
-  '&:hover': {
-    textDecoration: 'none',
-  },
-  margin: '0 2em .4em 0',
 })
 
 const Footer = () => {
@@ -88,6 +80,7 @@ const Footer = () => {
                 aria-label="twitter"
                 href="https://twitter.com/TheDarnRecipe"
                 target="_blank"
+                rel="noreferrer"
               >
                 <TwitterIcon />
               </IconButton>
@@ -95,6 +88,7 @@ const Footer = () => {
                 aria-label="facebook"
                 href="https://facebook.com/TheDarnRecipe"
                 target="_blank"
+                rel="noreferrer"
               >
                 <FacebookIcon />
               </IconButton>
@@ -102,25 +96,28 @@ const Footer = () => {
                 aria-label="instagram"
                 href="https://instagram.com/TheDarnRecipe/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <InstagramIcon />
               </IconButton>
             </div>
           </div>
           <div className={classes.footerRight}>
-            <FooterLink to="/about">About</FooterLink>
-            <FooterLink to="/contact">Contact</FooterLink>
-            <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
+            <Button to="/about" size="large">
+              ABOUT
+            </Button>
+            <Button to="/contact" size="large">
+              CONTACT
+            </Button>
+            <Button to="/privacy-policy" size="large">
+              PRIVACY POLICY
+            </Button>
           </div>
         </div>
 
         <Divider />
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          className={classes.copyright}
-        >
-          © 2020 Just the Darn Recipe.
+        <Typography variant="body2" className={classes.copyright}>
+          © 2021 JUST THE DARN RECIPE.
         </Typography>
       </Container>
     </div>
