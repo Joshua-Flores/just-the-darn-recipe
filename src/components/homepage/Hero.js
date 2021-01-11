@@ -12,10 +12,12 @@ const useStyles = makeStyles({
     marginTop: '1em',
   },
   subheading: {
-    fontSize: '1.4em',
     lineHeight: '1.4em',
     fontWeight: 500,
-    margin: '.6em 0 2em 0',
+    margin: '.2em 0 1em 0',
+    '@media (max-width: 575.98px)': {
+      margin: '.6em 0 1em 0',
+    },
   },
   button: {
     marginBottom: '2em',
@@ -31,7 +33,7 @@ const Hero = () => {
         A DIFFERENT KIND OF RECIPE WEBSITE
       </Typography>
       <Typography
-        variant="h5"
+        variant="h6"
         className={classes.subheading}
         color="textSecondary"
       >
@@ -47,7 +49,6 @@ const Hero = () => {
       >
         BROWSE RECIPES
       </Button>
-
       <Divider />
     </div>
   )
