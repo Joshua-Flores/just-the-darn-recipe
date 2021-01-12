@@ -25,7 +25,11 @@ const Hero = props => {
         {props.title}
       </Typography>
       <PostDetails date={props.date} url={props.url} />
-      <Img className={classes.heroImage} fluid={props.image.fluid} />
+      <Img
+        className={classes.heroImage}
+        fluid={props.image.fluid}
+        loading="eager"
+      />
     </div>
   )
 }
