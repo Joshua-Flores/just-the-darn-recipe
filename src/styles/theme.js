@@ -15,6 +15,9 @@ const theme = createMuiTheme({
         '.ais-Highlight-highlighted': {
           backgroundColor: green['A200'],
         },
+        a: {
+          color: '#121212',
+        },
       },
     },
   },

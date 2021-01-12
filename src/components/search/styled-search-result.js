@@ -16,7 +16,7 @@ const Popover = css`
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   padding: 1em;
   border-radius: 2px;
-  background: ${({ theme }) => theme.background};
+  background: white;
 `
 
 export default styled(SearchResult)`
@@ -27,7 +27,7 @@ export default styled(SearchResult)`
     display: flex;
     margin-bottom: 24px;
     font-weight: 500;
-    color: ${({ theme }) => theme.foreground};
+    color: #121212;
   }
 
   .Hits {
@@ -44,8 +44,6 @@ export default styled(SearchResult)`
       margin-bottom: 1em;
 
       a {
-        color: ${({ theme }) => theme.foreground};
-
         h4 {
           margin: 0 0 0.2em 0;
           font-weight: 900;
@@ -63,7 +61,7 @@ export default styled(SearchResult)`
   .ais-PoweredBy {
     display: flex;
     justify-content: flex-end;
-    color: ${({ theme }) => theme.foreground};
+    color: #121212;
     align-items: center;
     font-size: 12px;
     svg {
