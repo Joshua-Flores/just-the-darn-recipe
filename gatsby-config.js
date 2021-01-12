@@ -47,6 +47,7 @@ module.exports = {
     `gatsby-plugin-emotion`,
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
