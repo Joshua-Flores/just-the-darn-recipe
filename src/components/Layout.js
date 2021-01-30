@@ -41,6 +41,12 @@ const Layout = props => {
             data-domain="justthedarnrecipe.com"
             src="https://plausible.io/js/plausible.js"
           ></script>
+          <script
+            async
+            defer
+            data-domain="justthedarnrecipe.com"
+            src="https://plausible.joshuaflores.rocks/js/plausible.js"
+          ></script>
         </Helmet>
         <div className={classes.siteContent}>
           <NavBar />
