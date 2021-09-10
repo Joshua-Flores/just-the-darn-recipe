@@ -36,10 +36,9 @@ const Layout = props => {
         <CssBaseline />
         <Helmet>
           <script
-            async
             defer
             data-domain="justthedarnrecipe.com"
-            src="https://plausible.joshuaflores.rocks/js/plausible.js"
+            src="https://plausible.io/js/plausible.js"
           ></script>
         </Helmet>
         <div className={classes.siteContent}>
